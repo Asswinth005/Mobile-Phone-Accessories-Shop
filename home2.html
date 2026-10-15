@@ -1,0 +1,1594 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobiCraft | Home 2</title>
+    <!-- Custom Favicon – smartphone icon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563EB'%3E%3Cpath d='M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14zM12 19c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1z'/%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS -->
+        <script src="tailwind.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        herb: '#4A7C59',
+                        clay: '#C27A4A',
+                        sand: '#E8DCC4',
+                        soil: '#5C4B3A',
+                        cream: '#F9F5ED',
+                        dusk: '#6D6875',
+                        tech: '#2563EB',
+                        techdark: '#1E3A8A',
+                        neon: '#22D3EE',
+                        slatebg: '#0F172A',
+                    },
+                    fontFamily: {
+                        'display': ['"Poppins"', 'system-ui', 'sans-serif'],
+                        'body': ['"Inter"', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'spin-slow': 'spinSlow 12s linear infinite',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'herb-spin': 'herbSpin 4s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+                        'marquee': 'marquee 30s linear infinite',
+                    },
+                    keyframes: {
+                        floatSlow: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        spinSlow: { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } },
+                        slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                        bounceGentle: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-5px)' } },
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        herbSpin: { '0%': { transform: 'rotate(0deg) scale(1)' }, '50%': { transform: 'rotate(10deg) scale(1.05)' }, '100%': { transform: 'rotate(0deg) scale(1)' } },
+                        pulseGlow: { '0%, 100%': { boxShadow: '0 0 5px rgba(34,211,238,0.3)' }, '50%': { boxShadow: '0 0 20px rgba(34,211,238,0.6)' } },
+                        marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+                    },
+                    backgroundImage: {
+                        'tech-pattern': "radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.06) 0%, transparent 70%)",
+                        'circuit-texture': "url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M30 10 L35 25 L50 30 L35 40 L38 55 L30 45 L22 55 L25 40 L10 30 L25 25 Z%22 fill=%22rgba(37,99,235,0.03)%22/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #F9F5ED;
+            color: #5C4B3A;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .dark body {
+            background-color: #0B1120;
+            color: #E2E8F0;
+        }
+
+        .dark .text-white {
+            color: #E8DCC4;
+        }
+
+        .dark body > nav {
+            background-color: rgba(15, 23, 42, 0.96) !important;
+            border-color: rgba(37, 99, 235, 0.25) !important;
+        }
+
+        .dark section.bg-white,
+        .dark section[class*="bg-white"] {
+            background-color: #0F172A !important;
+        }
+
+        /* Custom scrollbar */
+        body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #E8DCC4;
+            border-radius: 10px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: #2563EB;
+            border-radius: 10px;
+        }
+
+        .dark body::-webkit-scrollbar-track {
+            background: #1E293B;
+        }
+
+        .dark body::-webkit-scrollbar-thumb {
+            background: #22D3EE;
+        }
+
+        /* Card styles – tech */
+        .tech-card {
+            background: white;
+            border-radius: 24px;
+            transition: all 0.35s ease;
+            border: 1px solid rgba(37, 99, 235, 0.12);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .dark .tech-card {
+            background: #1E293B;
+            border-color: rgba(34, 211, 238, 0.2);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -12px rgba(37, 99, 235, 0.25);
+            border-color: #2563EB;
+        }
+
+        .dark .tech-card:hover {
+            border-color: #22D3EE;
+        }
+
+        .featured-phone-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .featured-phone-card {
+            overflow: hidden;
+            border: 1px solid rgba(92, 75, 58, 0.1);
+            border-radius: 22px;
+            background: #ffffff;
+            box-shadow: 0 8px 24px rgba(31, 41, 55, 0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .featured-phone-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 18px 36px rgba(31, 41, 55, 0.12);
+        }
+
+        .featured-phone-visual {
+            position: relative;
+            display: flex;
+            height: 270px;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .featured-phone-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            transition: transform 0.35s ease;
+        }
+
+        .featured-phone-card:hover .featured-phone-visual img {
+            transform: scale(1.035);
+        }
+
+        .featured-phone-brand,
+        .featured-phone-tag {
+            position: absolute;
+            top: 14px;
+            z-index: 1;
+            padding: 7px 11px;
+            border: 1px solid rgba(15, 23, 42, 0.06);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.94);
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.06em;
+            line-height: 1;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.07);
+        }
+
+        .featured-phone-brand {
+            left: 14px;
+            color: #334155;
+        }
+
+        .featured-phone-tag {
+            right: 14px;
+            color: #2563eb;
+        }
+
+        .featured-phone-details {
+            padding: 18px;
+        }
+
+        .featured-phone-details h3 {
+            margin: 0;
+            color: #263248;
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .featured-phone-subtitle {
+            margin-top: 4px;
+            color: #778195;
+            font-size: 12px;
+        }
+
+        .featured-phone-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 18px;
+            padding-top: 14px;
+            border-top: 1px solid #edf0f3;
+        }
+
+        .featured-phone-price {
+            color: #2563eb;
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .featured-phone-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #2563eb;
+            font-size: 12px;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .dark .featured-phone-card {
+            border-color: rgba(148, 163, 184, 0.16);
+            background: #1e293b;
+        }
+
+        .dark .featured-phone-visual {
+            background: #f1f5f9;
+        }
+
+        .dark .featured-phone-details h3 {
+            color: #f8fafc;
+        }
+
+        .dark .featured-phone-subtitle {
+            color: #aab6c7;
+        }
+
+        .dark .featured-phone-bottom {
+            border-color: rgba(148, 163, 184, 0.16);
+        }
+
+        @media (max-width: 1023px) {
+            .featured-phone-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 560px) {
+            .featured-phone-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .featured-phone-visual {
+                height: 300px;
+            }
+        }
+
+        .btn-primary {
+            background-color: #2563EB;
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-primary:hover {
+            background-color: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.45);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #2563EB;
+            color: #2563EB;
+            background: transparent;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: #2563EB;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .dark .btn-outline {
+            border-color: #22D3EE;
+            color: #22D3EE;
+        }
+
+        .dark .btn-outline:hover {
+            background-color: #22D3EE;
+            color: #0F172A;
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background-color: #2563EB;
+            transition: width 0.25s ease;
+            border-radius: 3px;
+        }
+
+        .dark .nav-link::after {
+            background-color: #22D3EE;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown */
+        .dropdown-tech {
+            position: relative;
+        }
+
+        .dropdown-tech-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 210px;
+            background: white;
+            border-radius: 18px;
+            padding: 0.6rem 0;
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.25s ease;
+            z-index: 1000;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .dark .dropdown-tech-menu {
+            background: #1E293B;
+            border-color: rgba(34, 211, 238, 0.3);
+        }
+
+        .dropdown-tech:hover .dropdown-tech-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.65rem 1.4rem;
+            transition: all 0.2s;
+            color: #5C4B3A;
+        }
+
+        .dark .dropdown-item {
+            color: #E2E8F0;
+        }
+
+        .dropdown-item:hover {
+            background-color: #F9F5ED;
+            color: #2563EB;
+            padding-left: 1.7rem;
+        }
+
+        .dark .dropdown-item:hover {
+            background-color: #0F172A;
+            color: #22D3EE;
+        }
+
+        .dropdown-item i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-tech {
+            background: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 0 24px 24px;
+        }
+
+        .dark .mobile-menu-tech {
+            background: #0F172A;
+        }
+
+        .mobile-menu-tech.open {
+            max-height: 80vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+
+        .mobile-menu-tech.open::-webkit-scrollbar {
+            display: none;
+        }
+
+        .stat-badge {
+            background: white;
+            border-radius: 24px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(37, 99, 235, 0.15);
+        }
+
+        .dark .stat-badge {
+            background: #1E293B;
+            border-color: rgba(34, 211, 238, 0.2);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem;
+            border-left: 5px solid #2563EB;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark .testimonial-card {
+            background: #1E293B;
+            border-left-color: #22D3EE;
+        }
+
+        .social-icon-tech {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F9F5ED;
+            color: #2563EB;
+            transition: all 0.3s;
+        }
+
+        .social-icon-tech:hover {
+            background-color: #2563EB;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .dark .social-icon-tech {
+            background-color: #334155;
+            color: #E2E8F0;
+        }
+
+        .dark .social-icon-tech:hover {
+            background-color: #22D3EE;
+            color: #0F172A;
+        }
+
+        /* RTL adjustments */
+        [dir="rtl"] .ml-auto {
+            margin-left: 0 !important;
+            margin-right: auto !important;
+        }
+
+        [dir="rtl"] .border-l-4 {
+            border-left-width: 0 !important;
+            border-right-width: 4px !important;
+        }
+
+        [dir="rtl"] .ml-1 {
+            margin-left: 0 !important;
+            margin-right: 0.25rem !important;
+        }
+
+        html[dir="rtl"] .dropdown-tech-menu {
+            left: auto;
+            right: 0;
+        }
+
+        html[dir="rtl"] .dropdown-item i {
+            margin-right: 0;
+            margin-left: 0.75rem;
+        }
+
+        html[dir="rtl"] .dropdown-item:hover {
+            padding-left: 1.4rem;
+            padding-right: 1.7rem;
+        }
+
+        html[dir="rtl"] .testimonial-card {
+            border-left: none;
+            border-right: 5px solid #2563EB;
+        }
+
+        html[dir="rtl"] .text-left {
+            text-align: right;
+        }
+
+        /* High Contrast Dark Mode Form & Badge Fixes */
+        .dark input, .dark select, .dark textarea {
+            background-color: #0F172A !important;
+            color: #FFFFFF !important;
+            border-color: rgba(34, 211, 238, 0.3) !important;
+        }
+        .dark input::placeholder, .dark textarea::placeholder {
+            color: #94A3B8 !important;
+            opacity: 1 !important;
+        }
+        .dark select option {
+            background-color: #1E293B !important;
+            color: #FFFFFF !important;
+        }
+        .dark label {
+            color: #F1F5F9 !important;
+        }
+
+        /* Home2 specific styles */
+        .feature-card {
+            background: white;
+            border-radius: 28px;
+            padding: 2rem;
+            border: 1px solid rgba(37, 99, 235, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.06);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+        }
+
+        .dark .feature-card {
+            background: #1E293B;
+            border-color: rgba(34, 211, 238, 0.15);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 25px 40px -15px rgba(37, 99, 235, 0.25);
+            border-color: #2563EB;
+        }
+
+        .dark .feature-card:hover {
+            border-color: #22D3EE;
+        }
+
+        .brand-scroll {
+            display: flex;
+            gap: 2rem;
+            animation: marquee 25s linear infinite;
+            width: fit-content;
+        }
+
+        .brand-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        .brand-item {
+            --brand-color: #5C4B3A;
+            --brand-color-dark: #E2E8F0;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--brand-color);
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .brand-apple {
+            --brand-color: #6E6E73;
+            --brand-color-dark: #F5F5F7;
+        }
+
+        .brand-samsung {
+            --brand-color: #1428A0;
+            --brand-color-dark: #8AB4F8;
+        }
+
+        .brand-google {
+            --brand-color: #4285F4;
+            --brand-color-dark: #8AB4F8;
+        }
+
+        .brand-oneplus {
+            --brand-color: #EB0029;
+            --brand-color-dark: #FF5268;
+        }
+
+        .brand-xiaomi {
+            --brand-color: #FF6900;
+            --brand-color-dark: #FF8A3D;
+        }
+
+        .brand-sony {
+            --brand-color: #1F2937;
+            --brand-color-dark: #E2E8F0;
+        }
+
+        .brand-bose {
+            --brand-color: #0057B8;
+            --brand-color-dark: #8AB4F8;
+        }
+
+        .brand-nothing {
+            --brand-color: #171717;
+            --brand-color-dark: #F5F5F5;
+        }
+
+        .dark .brand-item {
+            color: var(--brand-color-dark);
+        }
+
+        .brand-item:hover {
+            color: var(--brand-color);
+        }
+
+        .dark .brand-item:hover {
+            color: var(--brand-color-dark);
+        }
+
+        .floating-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            z-index: 0;
+        }
+
+        .dark .floating-orb {
+            opacity: 0.08;
+        }
+
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            background-color: #22D3EE;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulseGlow 2s infinite;
+        }
+
+        .compare-table {
+            border-collapse: separate;
+            border-spacing: 0 8px;
+        }
+
+        .compare-table tr {
+            background: white;
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .dark .compare-table tr {
+            background: #1E293B;
+        }
+
+        .compare-table tr:hover {
+            background: #F9F5ED;
+            transform: scale(1.01);
+        }
+
+        .dark .compare-table tr:hover {
+            background: #0F172A;
+        }
+
+        .compare-table td {
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid #E8DCC4;
+        }
+
+        .dark .compare-table td {
+            border-bottom: 1px solid #334155;
+        }
+
+        .compare-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .compare-table td:first-child {
+            border-radius: 16px 0 0 16px;
+        }
+
+        .compare-table td:last-child {
+            border-radius: 0 16px 16px 0;
+        }
+    </style>
+</head>
+
+<body class="tech-pattern circuit-texture">
+
+    <!-- Navigation – tech, same structure as reference -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#0F172A]/95 backdrop-blur-md border-b border-sand dark:border-slate-700/50 shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-24 md:h-24 py-3 md:py-0">
+                <!-- Logo with smartphone icon (Left) -->
+                <div class="flex items-center flex-1">
+                    <a class='flex items-center gap-2 md:gap-3 group shrink-0' href='index.html'>
+                        <div
+                            class="w-9 h-9 md:w-10 md:h-10 bg-tech rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition duration-300">
+                            <i class="fas fa-mobile-alt text-white text-base md:text-lg"></i>
+                        </div>
+                        <div>
+                            <span
+                                class="text-lg md:text-2xl font-display font-bold tracking-tight text-soil dark:text-white">MobiCraft</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop nav (Centered) -->
+                <div class="hidden lg:flex items-center justify-center gap-4 xl:gap-8 shrink-0">
+                    <div class="dropdown-tech">
+                        <button
+                            class="nav-link text-tech dark:text-neon font-medium transition flex items-center gap-1 py-2 whitespace-nowrap text-sm xl:text-base">
+                            Home <i class="fas fa-chevron-down text-xs ml-1"></i>
+                        </button>
+                        <div class="dropdown-tech-menu">
+                            <a class="dropdown-item" href="index.html">Home 1</a>
+                            <a class="dropdown-item text-tech dark:text-neon font-bold bg-tech/10 dark:bg-tech/20" href="home2.html">Home 2</a>
+                        </div>
+                    </div>
+                    <a class="nav-link text-dusk dark:text-gray-200 hover:text-tech transition whitespace-nowrap text-sm xl:text-base"
+                        href="about.html">About</a>
+                    <a class="nav-link text-dusk dark:text-gray-200 hover:text-tech transition whitespace-nowrap text-sm xl:text-base"
+                        href="products.html">Products</a>
+                    <a class="nav-link text-dusk dark:text-gray-200 hover:text-tech transition whitespace-nowrap text-sm xl:text-base"
+                        href="brands.html">Brands</a>
+                    <a class="nav-link text-dusk dark:text-gray-200 hover:text-tech transition whitespace-nowrap text-sm xl:text-base"
+                        href="repair.html">Repair Services</a>
+                    <a class="nav-link text-dusk dark:text-gray-200 hover:text-tech transition whitespace-nowrap text-sm xl:text-base"
+                        href="contact.html">Contact</a>
+                </div>
+
+                <!-- Actions (Right) -->
+                <div class="flex items-center justify-end flex-1 gap-3 lg:gap-4 shrink-0">
+                    <div class="hidden lg:flex items-center gap-4">
+                        <a href="contact.html" class="btn-primary h-10 px-5 text-sm font-semibold inline-flex items-center justify-center whitespace-nowrap">Contact Us</a>
+                        <button id="theme-toggle"
+                            class="w-10 h-10 rounded-full bg-sand dark:bg-slate-700 text-tech dark:text-neon hover:scale-110 transition flex items-center justify-center">
+                            <i class="fas fa-moon dark:hidden text-tech"></i>
+                            <i class="fas fa-sun hidden dark:inline text-amber-300"></i>
+                        </button>
+                        <button id="rtl-toggle"
+                            class="w-10 h-10 rounded-full bg-sand dark:bg-slate-700 text-tech dark:text-neon hover:scale-110 transition flex items-center justify-center font-bold text-base"
+                            title="Toggle RTL/LTR">⇄</button>
+                    </div>
+
+                    <!-- Mobile toggle -->
+                    <button id="mobile-toggle"
+                        class="lg:hidden w-10 h-10 rounded-full bg-tech text-white flex items-center justify-center shadow-md">
+                        <i class="fas fa-bars text-base"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu-tech lg:hidden">
+                <div class="py-4 px-3 space-y-1">
+                    <div class="py-1">
+                        <button
+                            onclick="document.getElementById('shop-mobile-drop').classList.toggle('hidden'); document.getElementById('shop-mobile-icon').classList.toggle('rotate-180')"
+                            class="w-full flex items-center justify-between py-3 px-4 font-medium text-tech dark:text-neon border-l-4 border-tech bg-tech/5 rounded-xl transition cursor-pointer">
+                            <span>Shop</span>
+                            <i id="shop-mobile-icon"
+                                class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+                        </button>
+                        <div id="shop-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+                            <a class="block py-2.5 px-4 font-medium text-tech dark:text-neon bg-tech/5 border-l-4 border-tech rounded-xl transition"
+                                href="products.html"><i class="fas fa-mobile-alt mr-2"></i> Smartphones</a>
+                            <a class="block py-2.5 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                                href="products.html"><i class="fas fa-headphones mr-2"></i> Earphones</a>
+                            <a class="block py-2.5 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                                href="products.html"><i class="fas fa-plug mr-2"></i> Chargers</a>
+                            <a class="block py-2.5 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                                href="products.html"><i class="fas fa-shield-alt mr-2"></i> Cases</a>
+                        </div>
+                    </div>
+                    <a class="block py-3 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                        href="about.html">About</a>
+                    <a class="block py-3 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                        href="products.html">Products</a>
+                    <a class="block py-3 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                        href="brands.html">Brands</a>
+                    <a class="block py-3 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                        href="repair.html">Repair Services</a>
+                    <a class="block py-3 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                        href="contact.html">Contact</a>
+                    <div class="flex flex-col gap-3 pt-5 mt-3 border-t border-sand dark:border-slate-700/50">
+                        <a class="text-center btn-primary py-2.5 rounded-full font-semibold"
+                            href="contact.html">Contact Us</a>
+                        <div class="flex gap-3">
+                            <button id="mobile-theme-toggle"
+                                class="flex-1 py-2 rounded-full bg-sand dark:bg-slate-700 text-tech dark:text-neon text-sm font-medium flex items-center gap-2 justify-center">
+                                <i class="fas fa-moon dark:hidden text-tech"></i><i class="fas fa-sun hidden dark:inline text-amber-300"></i>
+                                Theme
+                            </button>
+                            <button id="mobile-rtl-toggle"
+                                class="flex-1 py-2 rounded-full bg-sand dark:bg-slate-700 text-tech dark:text-neon text-sm font-medium flex items-center gap-2 justify-center">
+                                ⇄ RTL Mode
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HOME 2 – UNIQUE CONTENT ==================== -->
+
+    <!-- HERO – Split layout with floating device mockup -->
+    <section class="relative min-h-screen flex items-center pt-36 pb-20 overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#111C2E] to-[#0B1120]">
+        <div class="floating-orb w-[500px] h-[500px] bg-tech top-[-100px] left-[-150px]"></div>
+        <div class="floating-orb w-[400px] h-[400px] bg-neon bottom-[-100px] right-[-100px]"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left content -->
+                <div class="text-left animate-slide-up">
+                    <div class="inline-flex items-center gap-2 bg-tech/20 backdrop-blur-sm border border-tech/30 rounded-full px-4 py-1.5 mb-6">
+                        <span class="pulse-dot"></span>
+                        <span class="text-neon text-xs font-semibold tracking-wide uppercase">New arrivals just dropped</span>
+                    </div>
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] text-white mb-6">
+                        Power Up<br>
+                        Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon to-tech">World.</span>
+                    </h1>
+                    <p class="text-lg text-gray-300 max-w-lg mb-8 leading-relaxed">
+                        From flagship killers to everyday essentials — discover smartphones, audio, and accessories that actually deliver. Plus expert repairs you can trust.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="products.html" class="btn-primary px-8 py-3.5 rounded-full inline-flex items-center gap-2 text-base shadow-lg">
+                            <i class="fas fa-bolt"></i> Explore Deals
+                        </a>
+                        <a href="repair.html" class="btn-outline px-8 py-3.5 rounded-full inline-flex items-center gap-2 text-base border-2 border-neon text-neon font-bold hover:bg-neon hover:text-slate-900 backdrop-blur-sm">
+                            <i class="fas fa-wrench"></i> Fix My Phone
+                        </a>
+                    </div>
+                    <!-- Trust indicators -->
+                    <div class="flex items-center gap-6 mt-10 pt-8 border-t border-white/10">
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-star text-amber-400 text-sm"></i>
+                            <span class="text-white text-sm font-medium">4.9/5 rating</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-truck text-neon text-sm"></i>
+                            <span class="text-white text-sm font-medium">Free shipping $50+</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fas fa-shield-alt text-tech text-sm"></i>
+                            <span class="text-white text-sm font-medium">2-year warranty</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right visual – Cyber-tech 3D Showcase with Floating Ecosystem Cards -->
+                <div class="relative block mt-10 lg:mt-0 animate-float-slow">
+                    <div class="relative w-full max-w-[560px] h-[500px] sm:h-[540px] lg:h-[580px] mx-auto flex items-center justify-center">
+
+                        <!-- Multi-layered Ambient Glows -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-tech/35 via-neon/25 to-purple-600/25 rounded-full blur-3xl -z-10 scale-95 pointer-events-none"></div>
+                        <div class="absolute w-80 h-80 bg-neon/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+                        <!-- Concentric Sci-Fi Orbital Rings -->
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] sm:w-[520px] h-[460px] sm:h-[520px] border border-cyan-400/20 rounded-full animate-spin-slow pointer-events-none -z-10"></div>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[400px] h-[350px] sm:h-[400px] border border-dashed border-tech/35 rounded-full animate-spin-slow pointer-events-none -z-10" style="animation-direction: reverse; animation-duration: 25s;"></div>
+
+                        <!-- Central 3D Device Art with Screen Blend Mode & Soft Radial Fade -->
+                        <div class="relative w-[360px] h-[360px] sm:w-[440px] sm:h-[440px] lg:w-[490px] lg:h-[490px] flex items-center justify-center z-10">
+                            <img src="assets/hero_bg.png" 
+                                 alt="Flagship 5G Smartphone" 
+                                 class="w-full h-full object-contain filter drop-shadow-[0_20px_45px_rgba(37,99,235,0.5)] transition-transform duration-700 hover:scale-105"
+                                 style="mix-blend-mode: screen; -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 88%); mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 55%, rgba(0,0,0,0) 88%);">
+                        </div>
+
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRAND MARQUEE – infinite scroll -->
+    <section class="py-12 bg-white dark:bg-[#0F172A] border-y border-sand dark:border-slate-700/50 overflow-hidden">
+        <div class="container mx-auto px-6 mb-6 text-center">
+            <p class="text-xs uppercase tracking-widest font-semibold text-dusk dark:text-gray-400">Trusted by leading brands</p>
+        </div>
+        <div class="relative w-full overflow-hidden">
+            <div class="brand-scroll">
+                <span class="brand-item brand-apple"><i class="fab fa-apple mr-2"></i>Apple</span>
+                <span class="brand-item brand-samsung"><i class="fab fa-samsung mr-2"></i>Samsung</span>
+                <span class="brand-item brand-google"><i class="fab fa-google mr-2"></i>Google</span>
+                <span class="brand-item brand-oneplus"><i class="fas fa-bolt mr-2"></i>OnePlus</span>
+                <span class="brand-item brand-xiaomi"><i class="fas fa-camera mr-2"></i>Xiaomi</span>
+                <span class="brand-item brand-sony"><i class="fas fa-music mr-2"></i>Sony</span>
+                <span class="brand-item brand-bose"><i class="fas fa-headphones mr-2"></i>Bose</span>
+                <span class="brand-item brand-nothing"><i class="fas fa-mobile-alt mr-2"></i>Nothing</span>
+                <!-- duplicate for seamless loop -->
+                <span class="brand-item brand-apple"><i class="fab fa-apple mr-2"></i>Apple</span>
+                <span class="brand-item brand-samsung"><i class="fab fa-samsung mr-2"></i>Samsung</span>
+                <span class="brand-item brand-google"><i class="fab fa-google mr-2"></i>Google</span>
+                <span class="brand-item brand-oneplus"><i class="fas fa-bolt mr-2"></i>OnePlus</span>
+                <span class="brand-item brand-xiaomi"><i class="fas fa-camera mr-2"></i>Xiaomi</span>
+                <span class="brand-item brand-sony"><i class="fas fa-music mr-2"></i>Sony</span>
+                <span class="brand-item brand-bose"><i class="fas fa-headphones mr-2"></i>Bose</span>
+                <span class="brand-item brand-nothing"><i class="fas fa-mobile-alt mr-2"></i>Nothing</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED CATEGORIES – Bento grid style -->
+    <section class="py-20 bg-cream/40 dark:bg-slate-800/20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-14">
+                <span class="text-tech dark:text-neon font-semibold tracking-wider text-sm uppercase bg-white/60 dark:bg-slate-800/60 px-5 py-1.5 rounded-full inline-block">📱 Shop by category</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-4 text-soil dark:text-white">Everything You <span class="text-tech dark:text-neon">Need</span></h2>
+                <p class="text-dusk dark:text-gray-300 max-w-xl mx-auto mt-3">From smartphones to chargers — we've got you covered.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <!-- Smartphones – large card -->
+                <div class="tech-card p-8 lg:col-span-2 flex flex-col justify-between relative overflow-hidden group min-h-[280px]">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-tech/10 flex items-center justify-center mb-5">
+                            <i class="fas fa-mobile-alt text-2xl text-tech dark:text-neon"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-soil dark:text-white mb-2">Smartphones</h3>
+                        <p class="text-dusk dark:text-gray-300 text-sm max-w-xs">Flagships, mid-rangers, and budget champions from every major brand.</p>
+                    </div>
+                    <div class="flex items-center justify-between mt-6">
+                        <span class="text-tech dark:text-neon font-bold text-lg">From $199</span>
+                        <a href="products.html" class="btn-outline px-5 py-2 text-sm font-semibold inline-flex items-center gap-2">Browse <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+                <!-- Audio – tall card -->
+                <div class="tech-card p-8 flex flex-col justify-between relative overflow-hidden group min-h-[280px]">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-clay/10 flex items-center justify-center mb-5">
+                            <i class="fas fa-headphones text-2xl text-clay"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-soil dark:text-white mb-2">Audio</h3>
+                        <p class="text-dusk dark:text-gray-300 text-sm">Wireless earbuds, headphones, speakers.</p>
+                    </div>
+                    <a href="products.html" class="text-clay font-semibold text-sm inline-flex items-center gap-1 mt-4 hover:gap-2 transition-all">Shop now <i class="fas fa-arrow-right text-xs"></i></a>
+                </div>
+                <!-- Chargers -->
+                <div class="tech-card p-8 flex flex-col justify-between relative overflow-hidden group min-h-[280px]">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-soil/10 flex items-center justify-center mb-5">
+                            <i class="fas fa-plug text-2xl text-soil dark:text-gray-200"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-soil dark:text-white mb-2">Chargers</h3>
+                        <p class="text-dusk dark:text-gray-300 text-sm">GaN, wireless, car chargers, and cables.</p>
+                    </div>
+                    <a href="products.html" class="text-soil dark:text-gray-200 font-semibold text-sm inline-flex items-center gap-1 mt-4 hover:gap-2 transition-all">Shop now <i class="fas fa-arrow-right text-xs"></i></a>
+                </div>
+                <!-- Cases – wide card -->
+                <div class="tech-card p-8 lg:col-span-2 flex flex-col justify-between relative overflow-hidden group min-h-[200px]">
+                    <div class="flex items-start justify-between relative z-10">
+                        <div>
+                            <div class="w-14 h-14 rounded-2xl bg-neon/10 flex items-center justify-center mb-5">
+                                <i class="fas fa-shield-alt text-2xl text-neon"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-soil dark:text-white mb-2">Cases & Protection</h3>
+                            <p class="text-dusk dark:text-gray-300 text-sm">Rugged, slim, clear — protect your investment.</p>
+                        </div>
+                        <a href="products.html" class="btn-primary px-5 py-2 text-sm font-semibold inline-flex items-center gap-2 shrink-0">Shop cases <i class="fas fa-arrow-right text-xs"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURE HIGHLIGHTS – icon-based grid -->
+    <section class="py-20 bg-white dark:bg-[#0F172A]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-soil dark:text-white">Why <span class="text-tech dark:text-neon">MobiCraft?</span></h2>
+                <p class="text-dusk dark:text-gray-300 mt-2 max-w-lg mx-auto">We go beyond selling phones — we build lasting tech relationships.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-tech/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i class="fas fa-shipping-fast text-2xl text-tech dark:text-neon"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-soil dark:text-white mb-2">Free Express Shipping</h3>
+                    <p class="text-sm text-dusk dark:text-gray-300">On all orders over $50. Delivered in 1-3 days.</p>
+                </div>
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-clay/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i class="fas fa-undo-alt text-2xl text-clay"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-soil dark:text-white mb-2">30-Day Returns</h3>
+                    <p class="text-sm text-dusk dark:text-gray-300">Changed your mind? No problem. Easy returns.</p>
+                </div>
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-soil/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i class="fas fa-headset text-2xl text-soil dark:text-gray-200"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-soil dark:text-white mb-2">24/7 Support</h3>
+                    <p class="text-sm text-dusk dark:text-gray-300">Real humans, real answers. Always here to help.</p>
+                </div>
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-tech/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i class="fas fa-certificate text-2xl text-tech dark:text-neon"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-soil dark:text-white mb-2">2-Year Warranty</h3>
+                    <p class="text-sm text-dusk dark:text-gray-300">Genuine products with extended coverage.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURED PHONES -->
+    <section id="feature-showcase" class="py-16 md:py-20 bg-cream/40 dark:bg-slate-800/20">
+        <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+            <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-8 md:mb-10">
+                <div>
+                    <span class="text-tech dark:text-neon font-bold tracking-[0.16em] text-xs uppercase">The latest & greatest</span>
+                    <h2 class="text-3xl md:text-4xl font-display font-bold mt-2 text-soil dark:text-white">Find your next <span class="text-tech dark:text-neon">favorite.</span></h2>
+                    <p class="text-dusk dark:text-gray-300 mt-2 max-w-xl">Standout phones, thoughtfully picked for every kind of user.</p>
+                </div>
+                <a href="products.html" class="inline-flex items-center gap-2 text-tech dark:text-neon font-semibold text-sm hover:gap-3 transition-all">
+                    Browse all phones <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <div class="featured-phone-grid">
+                <article class="featured-phone-card">
+                    <div class="featured-phone-visual">
+                        <span class="featured-phone-brand">SAMSUNG</span>
+                        <span class="featured-phone-tag">Best camera</span>
+                        <img src="assets/p2.jpg" alt="Samsung Galaxy S25 Ultra" loading="lazy">
+                    </div>
+                    <div class="featured-phone-details">
+                        <h3>Galaxy S25 Ultra</h3>
+                        <p class="featured-phone-subtitle">Big screen. Bigger ideas.</p>
+                        <div class="featured-phone-bottom">
+                            <span class="featured-phone-price">$1,099</span>
+                            <a href="products.html" class="featured-phone-link">Shop phone <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="featured-phone-card">
+                    <div class="featured-phone-visual">
+                        <span class="featured-phone-brand">APPLE</span>
+                        <span class="featured-phone-tag">Fan favorite</span>
+                        <img src="assets/i2.jpg" alt="iPhone 16 Pro" loading="lazy">
+                    </div>
+                    <div class="featured-phone-details">
+                        <h3>iPhone 16 Pro</h3>
+                        <p class="featured-phone-subtitle">Pro camera. All-day power.</p>
+                        <div class="featured-phone-bottom">
+                            <span class="featured-phone-price">$999</span>
+                            <a href="products.html" class="featured-phone-link">Shop phone <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="featured-phone-card">
+                    <div class="featured-phone-visual">
+                        <span class="featured-phone-brand">GOOGLE</span>
+                        <span class="featured-phone-tag">Gemini AI</span>
+                        <img src="assets/p3.jpg" alt="Google Pixel 9 Pro" loading="lazy">
+                    </div>
+                    <div class="featured-phone-details">
+                        <h3>Pixel 9 Pro</h3>
+                        <p class="featured-phone-subtitle">Made for the moments.</p>
+                        <div class="featured-phone-bottom">
+                            <span class="featured-phone-price">$899</span>
+                            <a href="products.html" class="featured-phone-link">Shop phone <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="featured-phone-card">
+                    <div class="featured-phone-visual">
+                        <span class="featured-phone-brand">ONEPLUS</span>
+                        <span class="featured-phone-tag">100W fast charge</span>
+                        <img src="assets/p4.jpg" alt="OnePlus 13" loading="lazy">
+                    </div>
+                    <div class="featured-phone-details">
+                        <h3>OnePlus 13</h3>
+                        <p class="featured-phone-subtitle">Fast, fluid, ready for more.</p>
+                        <div class="featured-phone-bottom">
+                            <span class="featured-phone-price">$799</span>
+                            <a href="products.html" class="featured-phone-link">Shop phone <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON SECTION – Modern Side-by-Side Flagship Comparison -->
+    <section id="compare" hidden class="py-20 bg-cream/40 dark:bg-slate-800/20">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="text-center mb-14">
+                <span class="text-tech dark:text-neon font-semibold tracking-wider text-sm uppercase bg-white/60 dark:bg-slate-800/60 px-5 py-1.5 rounded-full inline-block shadow-sm">🔍 Flagship Showdown</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-4 text-soil dark:text-white">Find Your <span class="text-tech dark:text-neon">Perfect Phone</span></h2>
+                <p class="text-dusk dark:text-gray-300 max-w-xl mx-auto mt-2 text-sm md:text-base">Direct side-by-side spec comparison of our top-rated flagship devices.</p>
+            </div>
+
+            <!-- Comparison Cards Grid (No horizontal scrollbar!) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Phone 1: Galaxy Ultra S25 -->
+                <div class="tech-card overflow-hidden p-0 flex flex-col justify-between relative group hover:border-tech transition-all duration-300">
+                    <div>
+                        <!-- Full-width Product Image -->
+                        <div class="relative w-full h-56 sm:h-60 overflow-hidden bg-white dark:bg-slate-800/60 flex items-center justify-center border-b border-sand/40 dark:border-slate-700/50">
+                            <span class="absolute top-3 left-3 z-10 text-xs font-bold text-tech dark:text-neon bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">Samsung</span>
+                            <span class="absolute top-3 right-3 z-10 text-[11px] font-bold text-amber-500 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-amber-500/20 shadow-sm">Best Zoom</span>
+                            <img src="assets/p2.jpg" alt="Galaxy Ultra S25" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-soil dark:text-white mb-1">Galaxy Ultra S25</h3>
+                            <div class="text-2xl font-bold text-tech dark:text-neon mb-5">$1,099</div>
+
+                            <!-- Specs list -->
+                            <div class="space-y-3 pt-4 border-t border-sand dark:border-slate-700/50 text-xs">
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-mobile-alt text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Display</div>
+                                        <div class="font-semibold text-soil dark:text-white">6.8" AMOLED 120Hz</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-camera text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Camera</div>
+                                        <div class="font-semibold text-soil dark:text-white">200MP + 12MP + 10MP</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-battery-full text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Battery & Speed</div>
+                                        <div class="font-semibold text-soil dark:text-white">5000mAh · 45W Fast</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-microchip text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Processor</div>
+                                        <div class="font-semibold text-soil dark:text-white">Snapdragon 8 Gen 3</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="products.html" class="btn-primary w-full py-2.5 text-xs font-semibold rounded-full flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all duration-300">
+                            View Details <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Phone 2: iPhone 16 Pro (Featured) -->
+                <div class="tech-card overflow-hidden p-0 flex flex-col justify-between relative group border-tech/40 dark:border-neon/40 shadow-lg hover:border-tech transition-all duration-300">
+                    <div class="absolute top-0 left-1/2 -translate-x-1/2 z-20 bg-gradient-to-r from-tech to-neon text-white text-[10px] uppercase font-bold px-3 py-1 rounded-b-lg shadow-md tracking-wider">
+                        Popular Choice
+                    </div>
+                    <div>
+                        <!-- Full-width Product Image -->
+                        <div class="relative w-full h-56 sm:h-60 overflow-hidden bg-black flex items-center justify-center border-b border-sand/40 dark:border-slate-700/50">
+                            <span class="absolute top-3 left-3 z-10 text-xs font-bold text-soil dark:text-white bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">Apple</span>
+                            <span class="absolute top-3 right-3 z-10 text-[11px] font-bold text-emerald-500 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-emerald-500/20 shadow-sm">Top Seller</span>
+                            <img src="assets/unsplash-photo-1592750475338-74b7b21085ab-w600-q80.jpg" alt="iPhone 16 Pro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-soil dark:text-white mb-1">iPhone 16 Pro</h3>
+                            <div class="text-2xl font-bold text-tech dark:text-neon mb-5">$999</div>
+
+                            <!-- Specs list -->
+                            <div class="space-y-3 pt-4 border-t border-sand dark:border-slate-700/50 text-xs">
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-mobile-alt text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Display</div>
+                                        <div class="font-semibold text-soil dark:text-white">6.3" Super Retina XDR</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-camera text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Camera</div>
+                                        <div class="font-semibold text-soil dark:text-white">48MP + 12MP + 12MP</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-battery-full text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Battery & Speed</div>
+                                        <div class="font-semibold text-soil dark:text-white">4200mAh · 30W Fast</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-microchip text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Processor</div>
+                                        <div class="font-semibold text-soil dark:text-white">A18 Pro Bionic</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="products.html" class="btn-primary w-full py-2.5 text-xs font-semibold rounded-full flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all duration-300">
+                            View Details <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Phone 3: Pixel 9 Pro -->
+                <div class="tech-card overflow-hidden p-0 flex flex-col justify-between relative group hover:border-tech transition-all duration-300">
+                    <div>
+                        <!-- Full-width Product Image -->
+                        <div class="relative w-full h-56 sm:h-60 overflow-hidden bg-white dark:bg-slate-800/60 flex items-center justify-center border-b border-sand/40 dark:border-slate-700/50">
+                            <span class="absolute top-3 left-3 z-10 text-xs font-bold text-clay bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">Google</span>
+                            <span class="absolute top-3 right-3 z-10 text-[11px] font-bold text-cyan-500 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-cyan-500/20 shadow-sm">Gemini AI</span>
+                            <img src="assets/p3.jpg" alt="Pixel 9 Pro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-soil dark:text-white mb-1">Pixel 9 Pro</h3>
+                            <div class="text-2xl font-bold text-tech dark:text-neon mb-5">$899</div>
+
+                            <!-- Specs list -->
+                            <div class="space-y-3 pt-4 border-t border-sand dark:border-slate-700/50 text-xs">
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-mobile-alt text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Display</div>
+                                        <div class="font-semibold text-soil dark:text-white">6.7" LTPO OLED 120Hz</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-camera text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Camera</div>
+                                        <div class="font-semibold text-soil dark:text-white">50MP + 48MP + 48MP</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-battery-full text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Battery & Speed</div>
+                                        <div class="font-semibold text-soil dark:text-white">5050mAh · 27W Fast</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-microchip text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Processor</div>
+                                        <div class="font-semibold text-soil dark:text-white">Google Tensor G4</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="products.html" class="btn-outline w-full py-2.5 text-xs font-semibold rounded-full flex items-center justify-center gap-2 hover:bg-tech hover:text-white transition-all duration-300">
+                            View Details <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Phone 4: OnePlus 13 -->
+                <div class="tech-card overflow-hidden p-0 flex flex-col justify-between relative group hover:border-tech transition-all duration-300">
+                    <div>
+                        <!-- Full-width Product Image -->
+                        <div class="relative w-full h-56 sm:h-60 overflow-hidden bg-white dark:bg-slate-800/60 flex items-center justify-center border-b border-sand/40 dark:border-slate-700/50">
+                            <span class="absolute top-3 left-3 z-10 text-xs font-bold text-red-500 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-2.5 py-1 rounded-full uppercase tracking-wider shadow-sm">OnePlus</span>
+                            <span class="absolute top-3 right-3 z-10 text-[11px] font-bold text-red-500 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-2.5 py-0.5 rounded-full border border-red-500/20 shadow-sm">100W Fast</span>
+                            <img src="assets/p4.jpg" alt="OnePlus 13" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        </div>
+
+                        <!-- Card Body -->
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-soil dark:text-white mb-1">OnePlus 13</h3>
+                            <div class="text-2xl font-bold text-tech dark:text-neon mb-5">$799</div>
+
+                            <!-- Specs list -->
+                            <div class="space-y-3 pt-4 border-t border-sand dark:border-slate-700/50 text-xs">
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-mobile-alt text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Display</div>
+                                        <div class="font-semibold text-soil dark:text-white">6.7" AMOLED 120Hz</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-camera text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Camera</div>
+                                        <div class="font-semibold text-soil dark:text-white">50MP + 48MP + 64MP</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-battery-full text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Battery & Speed</div>
+                                        <div class="font-semibold text-soil dark:text-white">5400mAh · 100W Fast</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-2.5">
+                                    <i class="fas fa-microchip text-tech dark:text-neon text-sm mt-0.5 w-4 text-center"></i>
+                                    <div>
+                                        <div class="text-dusk dark:text-gray-400 text-[10px] uppercase font-semibold">Processor</div>
+                                        <div class="font-semibold text-soil dark:text-white">Snapdragon 8 Gen 3</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6 pt-0">
+                        <a href="products.html" class="btn-outline w-full py-2.5 text-xs font-semibold rounded-full flex items-center justify-center gap-2 hover:bg-tech hover:text-white transition-all duration-300">
+                            View Details <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIAL – horizontal scroll style -->
+    <section class="py-20 bg-white dark:bg-[#0F172A] overflow-hidden">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-14">
+                <i class="fas fa-quote-right text-tech dark:text-neon text-4xl opacity-20 mb-3"></i>
+                <h2 class="text-3xl md:text-4xl font-display font-bold text-soil dark:text-white">Real Stories, <span class="text-tech dark:text-neon">Real People</span></h2>
+            </div>
+            <div class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-thin" style="scrollbar-width: thin;">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card min-w-[320px] max-w-[380px] snap-start flex flex-col">
+                    <div class="flex mb-3"><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i></div>
+                    <p class="text-dusk dark:text-gray-300 mb-4 flex-grow">"I've bought three phones from MobiCraft. Each time the experience was seamless and the prices beat every competitor."</p>
+                    <div class="flex items-center gap-3 mt-auto">
+                        <img src="assets/unsplash-photo-1507003211169-0a1dd7228f2d-w200-h200-faces-q80.jpg" alt="David L." class="w-11 h-11 rounded-full object-cover object-top shadow-sm border-2 border-tech/30 shrink-0">
+                        <div><strong class="text-soil dark:text-white text-sm">David L.</strong><div class="text-xs text-tech dark:text-neon font-medium">Verified Buyer</div></div>
+                    </div>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card min-w-[320px] max-w-[380px] snap-start flex flex-col">
+                    <div class="flex mb-3"><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i></div>
+                    <p class="text-dusk dark:text-gray-300 mb-4 flex-grow">"The repair team fixed my water-damaged phone in a day. I thought it was gone forever. Absolute lifesavers!"</p>
+                    <div class="flex items-center gap-3 mt-auto">
+                        <img src="assets/unsplash-photo-1494790108377-be9c29b29330-w200-h200-faces-q80.jpg" alt="Priya S." class="w-11 h-11 rounded-full object-cover object-top shadow-sm border-2 border-tech/30 shrink-0">
+                        <div><strong class="text-soil dark:text-white text-sm">Priya S.</strong><div class="text-xs text-tech dark:text-neon font-medium">Repair Customer</div></div>
+                    </div>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card min-w-[320px] max-w-[380px] snap-start flex flex-col">
+                    <div class="flex mb-3"><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i></div>
+                    <p class="text-dusk dark:text-gray-300 mb-4 flex-grow">"Their accessory range is unmatched. Found the perfect case and charger combo I couldn't find anywhere else."</p>
+                    <div class="flex items-center gap-3 mt-auto">
+                        <img src="assets/unsplash-photo-1500648767791-00dcc994a43e-w200-h200-faces-q80.jpg" alt="Marcus T." class="w-11 h-11 rounded-full object-cover object-top shadow-sm border-2 border-tech/30 shrink-0">
+                        <div><strong class="text-soil dark:text-white text-sm">Marcus T.</strong><div class="text-xs text-tech dark:text-neon font-medium">Regular Customer</div></div>
+                    </div>
+                </div>
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card min-w-[320px] max-w-[380px] snap-start flex flex-col">
+                    <div class="flex mb-3"><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i></div>
+                    <p class="text-dusk dark:text-gray-300 mb-4 flex-grow">"Fast shipping, genuine products, and the packaging was premium. You can tell they care about details."</p>
+                    <div class="flex items-center gap-3 mt-auto">
+                        <img src="assets/unsplash-photo-1438761681033-6461ffad8d80-w200-h200-faces-q80.jpg" alt="Elena R." class="w-11 h-11 rounded-full object-cover object-top shadow-sm border-2 border-tech/30 shrink-0">
+                        <div><strong class="text-soil dark:text-white text-sm">Elena R.</strong><div class="text-xs text-tech dark:text-neon font-medium">First-time Buyer</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER – gradient style -->
+    <section class="py-20 bg-gradient-to-r from-tech via-techdark to-[#0F172A] relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+                        <circle fill="white" cx="2" cy="2" r="1"></circle>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#dots)"></rect>
+            </svg>
+        </div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl mx-auto text-center">
+                <i class="fas fa-mobile-alt text-white/80 text-5xl mb-6 inline-block"></i>
+                <h2 class="text-3xl md:text-5xl font-display font-bold text-white mb-5 leading-tight">Ready to Upgrade<br>Your Tech Game?</h2>
+                <p class="text-white/80 text-lg mb-8 max-w-xl mx-auto">Join 50,000+ happy customers who trust MobiCraft for their mobile needs. Free shipping, expert repairs, and prices that make sense.</p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="products.html" class="bg-white text-tech font-bold px-8 py-3.5 rounded-full shadow-lg hover:scale-105 transition inline-flex items-center gap-2 text-base">
+                        <i class="fas fa-shopping-bag"></i> Start Shopping
+                    </a>
+                    <a href="contact.html" class="border-2 border-white/60 text-white px-8 py-3.5 rounded-full font-bold hover:bg-white/10 transition inline-flex items-center gap-2 text-base">
+                        <i class="fas fa-comments"></i> Talk to Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER – same as reference -->
+    <footer class="bg-white dark:bg-[#0F172A] text-soil dark:text-gray-300 pt-16 pb-8 border-t-4 border-tech transition-colors duration-300">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Brand Column -->
+                <div class="text-center md:text-left">
+                    <a href="index.html" class="inline-flex items-center justify-center md:justify-start gap-3 mb-6 group cursor-pointer">
+                        <div class="w-9 h-9 md:w-10 md:h-10 bg-tech rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+                            <i class="fas fa-mobile-alt text-white text-base md:text-lg"></i>
+                        </div>
+                        <span class="text-lg md:text-2xl font-display font-bold tracking-tight text-soil dark:text-white group-hover:text-tech dark:group-hover:text-neon transition-colors duration-300">MobiCraft</span>
+                    </a>
+                    <p class="text-sm text-dusk dark:text-gray-300 leading-relaxed mb-6">
+                        Latest tech, unbeatable prices, expert repairs. Your one-stop mobile shop.
+                    </p>
+                    <div class="flex justify-center md:justify-start gap-3">
+                        <a href="#" class="social-icon-tech"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon-tech"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon-tech"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Shop Links -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest font-bold text-tech dark:text-neon mb-5">Shop</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="products.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Smartphones</a></li>
+                        <li><a href="products.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Earphones & Audio</a></li>
+                        <li><a href="products.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Chargers & Cables</a></li>
+                        <li><a href="products.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Cases & Protection</a></li>
+                        <li><a href="brands.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">All Brands</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support Links -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest font-bold text-tech dark:text-neon mb-5">Support</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="about.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">About Us</a></li>
+                        <li><a href="repair.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Repair Services</a></li>
+                        <li><a href="#newsletter" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Warranty & Returns</a></li>
+                        <li><a href="contact.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Contact Us</a></li>
+                        <li><a href="#" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">FAQs</a></li>
+                        <li><a href="#" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Track Order</a></li>
+                    </ul>
+                </div>
+
+                <!-- Store Info -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest font-bold text-tech dark:text-neon mb-5">Visit Us</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-3 text-dusk dark:text-gray-300">
+                            <i class="fas fa-map-marker-alt text-tech dark:text-neon"></i>
+                            <span>89 Tech Boulevard, NY 10001</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-dusk dark:text-gray-300">
+                            <i class="fas fa-phone text-tech dark:text-neon"></i>
+                            <span>(555) 234-PHONE</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-dusk dark:text-gray-300">
+                            <i class="fas fa-envelope text-tech dark:text-neon"></i>
+                            <span>hello@mobicraft.com</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-dusk dark:text-gray-300">
+                            <i class="fas fa-clock text-tech dark:text-neon"></i>
+                            <span>Mon–Sat: 9am – 8pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="mt-12 pt-8 border-t border-sand dark:border-slate-700/50 text-center text-sm text-dusk dark:text-gray-300">
+                <p>© 2026 MobiCraft | Mobile Phone & Accessories Shop. All rights reserved. <span class="text-tech dark:text-neon">⚡ Power your world.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle
+            const themeBtns = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+            themeBtns.forEach(btn => {
+                btn?.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+                });
+            });
+            if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+
+            // RTL toggle
+            function setRTL(isRTL) {
+                const html = document.documentElement;
+                if (isRTL) { html.setAttribute('dir', 'rtl'); localStorage.setItem('dir', 'rtl'); }
+                else { html.setAttribute('dir', 'ltr'); localStorage.setItem('dir', 'ltr'); }
+            }
+            const savedDir = localStorage.getItem('dir');
+            if (savedDir === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+            else document.documentElement.setAttribute('dir', 'ltr');
+
+            const rtlBtn = document.getElementById('rtl-toggle');
+            if (rtlBtn) {
+                rtlBtn.addEventListener('click', () => {
+                    const currentDir = document.documentElement.getAttribute('dir');
+                    setRTL(currentDir !== 'rtl');
+                });
+            }
+            const mobileRtlBtn = document.getElementById('mobile-rtl-toggle');
+            if (mobileRtlBtn) {
+                mobileRtlBtn.addEventListener('click', () => {
+                    const currentDir = document.documentElement.getAttribute('dir');
+                    setRTL(currentDir !== 'rtl');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileToggle = document.getElementById('mobile-toggle');
+                    if (mobileMenu && mobileMenu.classList.contains('open')) {
+                        mobileMenu.classList.remove('open');
+                        if (mobileToggle && mobileToggle.querySelector('i')) {
+                            mobileToggle.querySelector('i').classList.remove('fa-times');
+                            mobileToggle.querySelector('i').classList.add('fa-bars');
+                        }
+                    }
+                });
+            }
+
+            // Mobile menu toggle
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileToggle && mobileMenu) {
+                mobileToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = mobileToggle.querySelector('i');
+                    if (mobileMenu.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+                mobileMenu.querySelectorAll('a:not(#mobile-rtl-toggle)').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('open');
+                        if (mobileToggle.querySelector('i')) {
+                            mobileToggle.querySelector('i').classList.remove('fa-times');
+                            mobileToggle.querySelector('i').classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobiCraft | About Us</title>
+    <!-- Custom Favicon – smartphone icon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%232563EB'%3E%3Cpath d='M17 1H7c-1.1 0-2 .9-2 2v18c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V3c0-1.1-.9-2-2-2zm0 18H7V5h10v14zM12 19c.55 0 1-.45 1-1s-.45-1-1-1-1 .45-1 1 .45 1 1 1z'/%3E%3C/svg%3E">
+
+    <!-- Tailwind CSS -->
+        <script src="tailwind.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        herb: '#4A7C59',
+                        clay: '#C27A4A',
+                        sand: '#E8DCC4',
+                        soil: '#5C4B3A',
+                        cream: '#F9F5ED',
+                        dusk: '#6D6875',
+                        tech: '#2563EB',
+                        techdark: '#1E3A8A',
+                        neon: '#22D3EE',
+                        slatebg: '#0F172A',
+                    },
+                    fontFamily: {
+                        'display': ['"Poppins"', 'system-ui', 'sans-serif'],
+                        'body': ['"Inter"', 'system-ui', 'sans-serif'],
+                    },
+                    animation: {
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'spin-slow': 'spinSlow 12s linear infinite',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-gentle': 'bounceGentle 2.5s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        floatSlow: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        spinSlow: { '0%': { transform: 'rotate(0deg)' }, '100%': { transform: 'rotate(360deg)' } },
+                        slideUp: { '0%': { transform: 'translateY(40px)', opacity: '0' }, '100%': { transform: 'translateY(0)', opacity: '1' } },
+                        bounceGentle: { '0%, 100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-5px)' } },
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        pulseGlow: { '0%, 100%': { boxShadow: '0 0 5px rgba(34,211,238,0.3)' }, '50%': { boxShadow: '0 0 20px rgba(34,211,238,0.6)' } },
+                    },
+                    backgroundImage: {
+                        'tech-pattern': "radial-gradient(circle at 20% 30%, rgba(37, 99, 235, 0.06) 0%, transparent 70%)",
+                        'circuit-texture': "url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cpath d=%22M30 10 L35 25 L50 30 L35 40 L38 55 L30 45 L22 55 L25 40 L10 30 L25 25 Z%22 fill=%22rgba(37,99,235,0.03)%22/%3E%3C/svg%3E')",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #F9F5ED;
+            color: #5C4B3A;
+            font-family: 'Inter', system-ui, sans-serif;
+        }
+
+        .dark body {
+            background-color: #0B1120;
+            color: #E2E8F0;
+        }
+
+        .dark .text-white {
+            color: #E8DCC4;
+        }
+
+        .dark body > nav {
+            background-color: rgba(15, 23, 42, 0.96) !important;
+            border-color: rgba(37, 99, 235, 0.25) !important;
+        }
+
+        .dark section.bg-white,
+        .dark section[class*="bg-white"] {
+            background-color: #0F172A !important;
+        }
+
+        /* Custom scrollbar */
+        body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: #E8DCC4;
+            border-radius: 10px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: #2563EB;
+            border-radius: 10px;
+        }
+
+        .dark body::-webkit-scrollbar-track {
+            background: #1E293B;
+        }
+
+        .dark body::-webkit-scrollbar-thumb {
+            background: #22D3EE;
+        }
+
+        /* Card styles – tech */
+        .tech-card {
+            background: white;
+            border-radius: 24px;
+            transition: all 0.35s ease;
+            border: 1px solid rgba(37, 99, 235, 0.12);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .dark .tech-card {
+            background: #1E293B;
+            border-color: rgba(34, 211, 238, 0.2);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -12px rgba(37, 99, 235, 0.25);
+            border-color: #2563EB;
+        }
+
+        .dark .tech-card:hover {
+            border-color: #22D3EE;
+        }
+
+        .btn-primary {
+            background-color: #2563EB;
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+        }
+
+        .btn-primary:hover {
+            background-color: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.45);
+        }
+
+        .btn-outline {
+            border: 1.5px solid #2563EB;
+            color: #2563EB;
+            background: transparent;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            background-color: #2563EB;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .dark .btn-outline {
+            border-color: #22D3EE;
+            color: #22D3EE;
+        }
+
+        .dark .btn-outline:hover {
+            background-color: #22D3EE;
+            color: #0F172A;
+        }
+
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2.5px;
+            background-color: #2563EB;
+            transition: width 0.25s ease;
+            border-radius: 3px;
+        }
+
+        .dark .nav-link::after {
+            background-color: #22D3EE;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Dropdown */
+        .dropdown-tech {
+            position: relative;
+        }
+
+        .dropdown-tech-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            min-width: 210px;
+            background: white;
+            border-radius: 18px;
+            padding: 0.6rem 0;
+            box-shadow: 0 18px 32px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: all 0.25s ease;
+            z-index: 1000;
+            border: 1px solid rgba(37, 99, 235, 0.2);
+        }
+
+        .dark .dropdown-tech-menu {
+            background: #1E293B;
+            border-color: rgba(34, 211, 238, 0.3);
+        }
+
+        .dropdown-tech:hover .dropdown-tech-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: flex;
+            align-items: center;
+            padding: 0.65rem 1.4rem;
+            transition: all 0.2s;
+            color: #5C4B3A;
+        }
+
+        .dark .dropdown-item {
+            color: #E2E8F0;
+        }
+
+        .dropdown-item:hover {
+            background-color: #F9F5ED;
+            color: #2563EB;
+            padding-left: 1.7rem;
+        }
+
+        .dark .dropdown-item:hover {
+            background-color: #0F172A;
+            color: #22D3EE;
+        }
+
+        .dropdown-item i {
+            margin-right: 0.75rem;
+            width: 20px;
+        }
+
+        /* Mobile menu */
+        .mobile-menu-tech {
+            background: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 0 0 24px 24px;
+        }
+
+        .dark .mobile-menu-tech {
+            background: #0F172A;
+        }
+
+        .mobile-menu-tech.open {
+            max-height: 80vh;
+            overflow-y: auto;
+            scrollbar-width: none;
+        }
+
+        .mobile-menu-tech.open::-webkit-scrollbar {
+            display: none;
+        }
+
+        .stat-badge {
+            background: white;
+            border-radius: 24px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(37, 99, 235, 0.15);
+        }
+
+        .dark .stat-badge {
+            background: #1E293B;
+            border-color: rgba(34, 211, 238, 0.2);
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem;
+            border-left: 5px solid #2563EB;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark .testimonial-card {
+            background: #1E293B;
+            border-left-color: #22D3EE;
+        }
+
+        .social-icon-tech {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #F9F5ED;
+            color: #2563EB;
+            transition: all 0.3s;
+        }
+
+        .social-icon-tech:hover {
+            background-color: #2563EB;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .dark .social-icon-tech {
+            background-color: #334155;
+            color: #E2E8F0;
+        }
+
+        .dark .social-icon-tech:hover {
+            background-color: #22D3EE;
+            color: #0F172A;
+        }
+
+        /* RTL adjustments */
+        [dir="rtl"] .ml-auto {
+            margin-left: 0 !important;
+            margin-right: auto !important;
+        }
+
+        [dir="rtl"] .border-l-4 {
+            border-left-width: 0 !important;
+            border-right-width: 4px !important;
+        }
+
+        [dir="rtl"] .ml-1 {
+            margin-left: 0 !important;
+            margin-right: 0.25rem !important;
+        }
+
+        html[dir="rtl"] .dropdown-tech-menu {
+            left: auto;
+            right: 0;
+        }
+
+        html[dir="rtl"] .dropdown-item i {
+            margin-right: 0;
+            margin-left: 0.75rem;
+        }
+
+        html[dir="rtl"] .dropdown-item:hover {
+            padding-left: 1.4rem;
+            padding-right: 1.7rem;
+        }
+
+        html[dir="rtl"] .testimonial-card {
+            border-left: none;
+            border-right: 5px solid #2563EB;
+        }
+
+        html[dir="rtl"] .text-left {
+            text-align: right;
+        }
+
+        /* High Contrast Dark Mode Form & Badge Fixes */
+        .dark input, .dark select, .dark textarea {
+            background-color: #0F172A !important;
+            color: #FFFFFF !important;
+            border-color: rgba(34, 211, 238, 0.3) !important;
+        }
+        .dark input::placeholder, .dark textarea::placeholder {
+            color: #94A3B8 !important;
+            opacity: 1 !important;
+        }
+        .dark select option {
+            background-color: #1E293B !important;
+            color: #FFFFFF !important;
+        }
+        .dark label {
+            color: #F1F5F9 !important;
+        }
+
+        /* About page specific */
+        .timeline-item {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #2563EB;
+            border: 3px solid white;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+            z-index: 1;
+        }
+
+        .dark .timeline-item::before {
+            background: #22D3EE;
+            border-color: #1E293B;
+            box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.2);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: linear-gradient(to bottom, #2563EB, transparent);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            transition: all 0.35s ease;
+        }
+
+        .dark .value-card {
+            background: #1E293B;
+            border-color: rgba(34, 211, 238, 0.15);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -15px rgba(37, 99, 235, 0.2);
+            border-color: #2563EB;
+        }
+
+        .dark .value-card:hover {
+            border-color: #22D3EE;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .dark .team-card {
+            background: #1E293B;
+            border-color: rgba(34, 211, 238, 0.15);
+        }
+
+        .team-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 35px -12px rgba(37, 99, 235, 0.25);
+        }
+
+        .team-card img {
+            transition: transform 0.5s ease;
+        }
+
+        .team-card:hover img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="tech-pattern circuit-texture">
+
+    <!-- Navigation – tech, same structure as reference -->
+    <nav
+        class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-[#0F172A]/95 backdrop-blur-md border-b border-sand dark:border-slate-700/50 shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between h-24 md:h-24 py-3 md:py-0">
+                <!-- Logo with smartphone icon (Left) -->
+                <div class="flex items-center flex-1">
+                    <a class='flex items-center gap-2 md:gap-3 group shrink-0' href='index.html'>
+                        <div
+                            class="w-9 h-9 md:w-10 md:h-10 bg-tech rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition duration-300">
+                            <i class="fas fa-mobile-alt text-white text-base md:text-lg"></i>
+                        </div>
+                        <div>
+                            <span
+                                class="text-lg md:text-2xl font-display font-bold tracking-tight text-soil dark:text-white">MobiCraft</span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Desktop nav (Centered) -->
+                <div class="hidden lg:flex items-center justify-center gap-4 xl:gap-8 shrink-0">
+                    <div class="dropdown-tech">
+                        <button
+                            class="nav-link text-dusk dark:text-gray-200 hover:text-tech transition flex items-center gap-1 py-2 whitespace-nowrap text-sm xl:text-base">
+                            Home <i class="fas fa-chevron-down text-xs ml-1"></i>
+                        </button>
+                        <div class="dropdown-tech-menu">
+                            <a class="dropdown-item" href="index.html">Home 1</a>
+                            <a class="dropdown-item" href="home2.html">Home 2</a>
+                        </div>
+                    </div>
+                    <a class="nav-link text-tech dark:text-neon font-medium transition whitespace-nowrap text-sm xl:text-base"
+                        href="about.html">About</a>
+                    <a class="nav-link text-dusk dark:text-gray-200 hover:text-tech transition whitespace-nowrap text-sm xl:text-base"
+                        href="products.html">Products</a>
+                    <a class="nav-link text-dusk dark:text-gray-200 hover:text-tech transition whitespace-nowrap text-sm xl:text-base"
+                        href="brands.html">Brands</a>
+                    <a class="nav-link text-dusk dark:text-gray-200 hover:text-tech transition whitespace-nowrap text-sm xl:text-base"
+                        href="repair.html">Repair Services</a>
+                    <a class="nav-link text-dusk dark:text-gray-200 hover:text-tech transition whitespace-nowrap text-sm xl:text-base"
+                        href="contact.html">Contact</a>
+                </div>
+
+                <!-- Actions (Right) -->
+                <div class="flex items-center justify-end flex-1 gap-3 lg:gap-4 shrink-0">
+                    <div class="hidden lg:flex items-center gap-4">
+                        <a href="contact.html" class="btn-primary h-10 px-5 text-sm font-semibold inline-flex items-center justify-center whitespace-nowrap">Contact Us</a>
+                        <button id="theme-toggle"
+                            class="w-10 h-10 rounded-full bg-sand dark:bg-slate-700 text-tech dark:text-neon hover:scale-110 transition flex items-center justify-center">
+                            <i class="fas fa-moon dark:hidden text-tech"></i>
+                            <i class="fas fa-sun hidden dark:inline text-amber-300"></i>
+                        </button>
+                        <button id="rtl-toggle"
+                            class="w-10 h-10 rounded-full bg-sand dark:bg-slate-700 text-tech dark:text-neon hover:scale-110 transition flex items-center justify-center font-bold text-base"
+                            title="Toggle RTL/LTR">⇄</button>
+                    </div>
+
+                    <!-- Mobile toggle -->
+                    <button id="mobile-toggle"
+                        class="lg:hidden w-10 h-10 rounded-full bg-tech text-white flex items-center justify-center shadow-md">
+                        <i class="fas fa-bars text-base"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu-tech lg:hidden">
+                <div class="py-4 px-3 space-y-1">
+                    <div class="py-1">
+                        <button
+                            onclick="document.getElementById('shop-mobile-drop').classList.toggle('hidden'); document.getElementById('shop-mobile-icon').classList.toggle('rotate-180')"
+                            class="w-full flex items-center justify-between py-3 px-4 font-medium text-tech dark:text-neon border-l-4 border-tech bg-tech/5 rounded-xl transition cursor-pointer">
+                            <span>Shop</span>
+                            <i id="shop-mobile-icon"
+                                class="fas fa-chevron-down text-xs opacity-60 transition-transform duration-300"></i>
+                        </button>
+                        <div id="shop-mobile-drop" class="hidden pl-2 space-y-1 mt-1 mb-2">
+                            <a class="block py-2.5 px-4 font-medium text-tech dark:text-neon bg-tech/5 border-l-4 border-tech rounded-xl transition"
+                                href="products.html"><i class="fas fa-mobile-alt mr-2"></i> Smartphones</a>
+                            <a class="block py-2.5 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                                href="products.html"><i class="fas fa-headphones mr-2"></i> Earphones</a>
+                            <a class="block py-2.5 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                                href="products.html"><i class="fas fa-plug mr-2"></i> Chargers</a>
+                            <a class="block py-2.5 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                                href="products.html"><i class="fas fa-shield-alt mr-2"></i> Cases</a>
+                        </div>
+                    </div>
+                    <a class="block py-3 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                        href="about.html">About</a>
+                    <a class="block py-3 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                        href="products.html">Products</a>
+                    <a class="block py-3 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                        href="brands.html">Brands</a>
+                    <a class="block py-3 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                        href="repair.html">Repair Services</a>
+                    <a class="block py-3 px-4 font-medium text-dusk dark:text-gray-200 hover:bg-sand dark:hover:bg-slate-700/30 rounded-xl transition"
+                        href="contact.html">Contact</a>
+                    <div class="flex flex-col gap-3 pt-5 mt-3 border-t border-sand dark:border-slate-700/50">
+                        <a class="text-center btn-primary py-2.5 rounded-full font-semibold"
+                            href="contact.html">Contact Us</a>
+                        <div class="flex gap-3">
+                            <button id="mobile-theme-toggle"
+                                class="flex-1 py-2 rounded-full bg-sand dark:bg-slate-700 text-tech dark:text-neon text-sm font-medium flex items-center gap-2 justify-center">
+                                <i class="fas fa-moon dark:hidden text-tech"></i><i class="fas fa-sun hidden dark:inline text-amber-300"></i>
+                                Theme
+                            </button>
+                            <button id="mobile-rtl-toggle"
+                                class="flex-1 py-2 rounded-full bg-sand dark:bg-slate-700 text-tech dark:text-neon text-sm font-medium flex items-center gap-2 justify-center">
+                                ⇄ RTL Mode
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== ABOUT PAGE CONTENT ==================== -->
+
+    <!-- HERO – About page -->
+    <section class="relative min-h-[85vh] flex items-center pt-40 pb-20 md:pt-44 md:pb-24 overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#111C2E] to-[#0B1120]">
+        <div class="absolute inset-0 opacity-20">
+            <img src="assets/unsplash-photo-1546435770-a3e426bf472b-w600-q80.jpg" alt="Mobile store" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0F172A] via-transparent to-[#0F172A]/60"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-3xl mx-auto text-center animate-slide-up">
+                <span class="text-neon font-semibold tracking-wider text-sm uppercase bg-tech/20 backdrop-blur-sm px-5 py-1.5 rounded-full inline-block mb-6">About MobiCraft</span>
+                <h1 class="text-5xl md:text-6xl font-display font-bold text-white mb-6 leading-tight">
+                    More Than a <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon to-tech">Phone Shop.</span>
+                </h1>
+                <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    We're a team of tech enthusiasts, certified technicians, and problem solvers on a mission to make great technology accessible to everyone.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 mt-8">
+                    <a href="products.html" class="btn-primary px-8 py-3.5 rounded-full inline-flex items-center justify-center gap-2 text-base">
+                        <i class="fas fa-shopping-bag"></i> Shop Phones
+                    </a>
+                    <a href="#team" class="btn-outline px-8 py-3.5 rounded-full inline-flex items-center justify-center gap-2 text-base border-2 border-neon text-neon hover:bg-neon hover:text-slate-900">
+                        <i class="fas fa-users"></i> Meet the Team
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION STATEMENT – big text -->
+    <section class="py-20 bg-white dark:bg-[#0F172A]">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="text-center">
+                <i class="fas fa-quote-left text-4xl text-tech dark:text-neon opacity-20 mb-6"></i>
+                <p class="text-2xl md:text-3xl font-display font-medium text-soil dark:text-white leading-relaxed">
+                    "Our mission is simple: bring you the latest technology at fair prices, back it with genuine expertise, and treat every customer like a neighbor — not a transaction."
+                </p>
+                <div class="mt-8 flex items-center justify-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-tech/10 flex items-center justify-center">
+                        <i class="fas fa-mobile-alt text-tech dark:text-neon"></i>
+                    </div>
+                    <div class="text-left">
+                        <div class="font-bold text-soil dark:text-white">The MobiCraft Team</div>
+                        <div class="text-sm text-dusk dark:text-gray-400">Founders & Tech Enthusiasts</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR STORY – timeline -->
+    <section class="py-20 bg-cream/40 dark:bg-slate-800/20">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <div class="text-center mb-14">
+                <span class="text-tech dark:text-neon font-semibold tracking-wider text-sm uppercase">Our Journey</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-3 text-soil dark:text-white">How We <span class="text-tech dark:text-neon">Started</span></h2>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <div class="space-y-10">
+                    <div class="timeline-item">
+                        <div class="text-sm font-bold text-tech dark:text-neon mb-1">2018</div>
+                        <h3 class="text-xl font-bold text-soil dark:text-white mb-2">The Idea</h3>
+                        <p class="text-dusk dark:text-gray-300 text-sm leading-relaxed">Frustrated by overpriced phones and confusing repair options, we started MobiCraft from a small garage with one simple goal: make tech honest and accessible.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="text-sm font-bold text-tech dark:text-neon mb-1">2019</div>
+                        <h3 class="text-xl font-bold text-soil dark:text-white mb-2">First Store Opens</h3>
+                        <p class="text-dusk dark:text-gray-300 text-sm leading-relaxed">Our first physical location opened in downtown NY. Within six months, we'd served over 5,000 customers and built a reputation for fair prices and expert advice.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="text-sm font-bold text-tech dark:text-neon mb-1">2021</div>
+                        <h3 class="text-xl font-bold text-soil dark:text-white mb-2">Repair Lab Launch</h3>
+                        <p class="text-dusk dark:text-gray-300 text-sm leading-relaxed">We launched our certified repair lab, offering same-day screen replacements, battery swaps, and water damage recovery — all with genuine parts.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="text-sm font-bold text-tech dark:text-neon mb-1">2024</div>
+                        <h3 class="text-xl font-bold text-soil dark:text-white mb-2">50,000+ Customers</h3>
+                        <p class="text-dusk dark:text-gray-300 text-sm leading-relaxed">Today, we've helped over 50,000 customers upgrade, repair, and enjoy their devices. And we're just getting started.</p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="sticky top-32">
+                        <div class="tech-card p-8">
+                            <div class="w-20 h-20 rounded-3xl bg-tech/10 flex items-center justify-center mb-6">
+                                <i class="fas fa-store text-3xl text-tech dark:text-neon"></i>
+                            </div>
+                            <h3 class="text-2xl font-bold text-soil dark:text-white mb-4">Visit Our Store</h3>
+                            <p class="text-dusk dark:text-gray-300 text-sm leading-relaxed mb-6">Come see, touch, and try before you buy. Our team is always happy to help you find the perfect device.</p>
+                            <ul class="space-y-3 text-sm">
+                                <li class="flex items-center gap-3 text-dusk dark:text-gray-300">
+                                    <i class="fas fa-map-marker-alt text-tech dark:text-neon"></i>
+                                    <span>89 Tech Boulevard, NY 10001</span>
+                                </li>
+                                <li class="flex items-center gap-3 text-dusk dark:text-gray-300">
+                                    <i class="fas fa-clock text-tech dark:text-neon"></i>
+                                    <span>Mon–Sat: 9am – 8pm</span>
+                                </li>
+                                <li class="flex items-center gap-3 text-dusk dark:text-gray-300">
+                                    <i class="fas fa-phone text-tech dark:text-neon"></i>
+                                    <span>(555) 234-PHONE</span>
+                                </li>
+                            </ul>
+                            <a href="contact.html" class="btn-primary w-full py-3 mt-6 inline-flex items-center justify-center gap-2 text-sm font-semibold">
+                                <i class="fas fa-directions"></i> Get Directions
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUES – grid of cards -->
+    <section class="py-20 bg-white dark:bg-[#0F172A]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-14">
+                <span class="text-tech dark:text-neon font-semibold tracking-wider text-sm uppercase">What Drives Us</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-3 text-soil dark:text-white">Our Core <span class="text-tech dark:text-neon">Values</span></h2>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="value-card text-center">
+                    <div class="w-16 h-16 bg-tech/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i class="fas fa-handshake text-2xl text-tech dark:text-neon"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-soil dark:text-white mb-3">Honesty First</h3>
+                    <p class="text-sm text-dusk dark:text-gray-300 leading-relaxed">No hidden fees, no pushy upsells. Just straight talk and fair prices.</p>
+                </div>
+                <div class="value-card text-center">
+                    <div class="w-16 h-16 bg-clay/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i class="fas fa-tools text-2xl text-clay"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-soil dark:text-white mb-3">Expert Craftsmanship</h3>
+                    <p class="text-sm text-dusk dark:text-gray-300 leading-relaxed">Certified technicians using genuine parts. Repairs done right the first time.</p>
+                </div>
+                <div class="value-card text-center">
+                    <div class="w-16 h-16 bg-soil/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i class="fas fa-users text-2xl text-soil dark:text-gray-200"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-soil dark:text-white mb-3">Community Focused</h3>
+                    <p class="text-sm text-dusk dark:text-gray-300 leading-relaxed">We're locals serving locals. Your trust is our most valuable asset.</p>
+                </div>
+                <div class="value-card text-center">
+                    <div class="w-16 h-16 bg-tech/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
+                        <i class="fas fa-rocket text-2xl text-tech dark:text-neon"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-soil dark:text-white mb-3">Always Improving</h3>
+                    <p class="text-sm text-dusk dark:text-gray-300 leading-relaxed">From our inventory to our process, we're constantly getting better.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM – profiles -->
+    <section id="team" class="py-20 bg-cream/40 dark:bg-slate-800/20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-14">
+                <span class="text-tech dark:text-neon font-semibold tracking-wider text-sm uppercase">The People</span>
+                <h2 class="text-3xl md:text-4xl font-display font-bold mt-3 text-soil dark:text-white">Meet the <span class="text-tech dark:text-neon">Team</span></h2>
+                <p class="text-dusk dark:text-gray-300 mt-2 max-w-lg mx-auto">Real people, real expertise, real passion for tech.</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <!-- Team 1 -->
+                <div class="team-card text-center">
+                    <div class="h-56 overflow-hidden bg-tech/5">
+                        <img src="assets/unsplash-photo-1560250097-0b93528c311a-w400-h400-faces-q80.jpg" alt="James Carter" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-soil dark:text-white">James Carter</h3>
+                        <p class="text-xs text-tech dark:text-neon font-semibold uppercase tracking-wider mt-1">Founder & CEO</p>
+                        <p class="text-xs text-dusk dark:text-gray-400 mt-3 leading-relaxed">15 years in mobile tech. Still answers customer calls.</p>
+                    </div>
+                </div>
+                <!-- Team 2 -->
+                <div class="team-card text-center">
+                    <div class="h-56 overflow-hidden bg-clay/5">
+                        <img src="assets/unsplash-photo-1573496359142-b8d87734a5a2-w400-h400-faces-q80.jpg" alt="Aisha Patel" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-soil dark:text-white">Aisha Patel</h3>
+                        <p class="text-xs text-clay font-semibold uppercase tracking-wider mt-1">Head of Repairs</p>
+                        <p class="text-xs text-dusk dark:text-gray-400 mt-3 leading-relaxed">Certified in 12+ brands. Can fix a cracked screen blindfolded.</p>
+                    </div>
+                </div>
+                <!-- Team 3 -->
+                <div class="team-card text-center">
+                    <div class="h-56 overflow-hidden bg-soil/5">
+                        <img src="assets/unsplash-photo-1472099645785-5658abf4ff4e-w400-h400-faces-q80.jpg" alt="Marco Rivera" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-soil dark:text-white">Marco Rivera</h3>
+                        <p class="text-xs text-soil dark:text-gray-300 font-semibold uppercase tracking-wider mt-1">Product Curator</p>
+                        <p class="text-xs text-dusk dark:text-gray-400 mt-3 leading-relaxed">Tests every phone before it hits our shelves. No exceptions.</p>
+                    </div>
+                </div>
+                <!-- Team 4 -->
+                <div class="team-card text-center">
+                    <div class="h-56 overflow-hidden bg-tech/5">
+                        <img src="assets/unsplash-photo-1580489944761-15a19d654956-w400-h400-faces-q80.jpg" alt="Lena Novak" class="w-full h-full object-cover object-top">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="font-bold text-soil dark:text-white">Lena Novak</h3>
+                        <p class="text-xs text-tech dark:text-neon font-semibold uppercase tracking-wider mt-1">Customer Experience</p>
+                        <p class="text-xs text-dusk dark:text-gray-400 mt-3 leading-relaxed">If you've chatted with us, you've talked to Lena. She remembers everyone.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS BANNER – horizontal -->
+    <section class="py-16 bg-tech">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">50K+</div>
+                    <div class="text-xs uppercase tracking-wider font-semibold text-white/70">Happy Customers</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">12K+</div>
+                    <div class="text-xs uppercase tracking-wider font-semibold text-white/70">Repairs Completed</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">200+</div>
+                    <div class="text-xs uppercase tracking-wider font-semibold text-white/70">Phone Models</div>
+                </div>
+                <div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">4.9★</div>
+                    <div class="text-xs uppercase tracking-wider font-semibold text-white/70">Average Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA – join us -->
+    <section class="py-20 bg-white dark:bg-[#0F172A]">
+        <div class="container mx-auto px-6 text-center max-w-3xl">
+            <i class="fas fa-mobile-alt text-4xl text-tech dark:text-neon mb-6 inline-block"></i>
+            <h2 class="text-3xl md:text-4xl font-display font-bold text-soil dark:text-white mb-4">Ready to Experience the Difference?</h2>
+            <p class="text-dusk dark:text-gray-300 text-lg mb-8">Visit us in-store or shop online. Either way, you'll get honest advice and great prices.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="products.html" class="btn-primary px-8 py-3.5 rounded-full inline-flex items-center gap-2 text-base shadow-lg">
+                    <i class="fas fa-shopping-bag"></i> Shop Now
+                </a>
+                <a href="contact.html" class="btn-outline px-8 py-3.5 rounded-full inline-flex items-center gap-2 text-base font-semibold">
+                    <i class="fas fa-comments"></i> Get in Touch
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER – same as reference -->
+    <footer class="bg-white dark:bg-[#0F172A] text-soil dark:text-gray-300 pt-16 pb-8 border-t-4 border-tech transition-colors duration-300">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+                <!-- Brand Column -->
+                <div class="text-center md:text-left">
+                    <a href="index.html" class="inline-flex items-center justify-center md:justify-start gap-3 mb-6 group cursor-pointer">
+                        <div class="w-9 h-9 md:w-10 md:h-10 bg-tech rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+                            <i class="fas fa-mobile-alt text-white text-base md:text-lg"></i>
+                        </div>
+                        <span class="text-lg md:text-2xl font-display font-bold tracking-tight text-soil dark:text-white group-hover:text-tech dark:group-hover:text-neon transition-colors duration-300">MobiCraft</span>
+                    </a>
+                    <p class="text-sm text-dusk dark:text-gray-300 leading-relaxed mb-6">
+                        Latest tech, unbeatable prices, expert repairs. Your one-stop mobile shop.
+                    </p>
+                    <div class="flex justify-center md:justify-start gap-3">
+                        <a href="#" class="social-icon-tech"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon-tech"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon-tech"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+                <!-- Shop Links -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest font-bold text-tech dark:text-neon mb-5">Shop</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="products.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Smartphones</a></li>
+                        <li><a href="products.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Earphones & Audio</a></li>
+                        <li><a href="products.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Chargers & Cables</a></li>
+                        <li><a href="products.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Cases & Protection</a></li>
+                        <li><a href="brands.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">All Brands</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support Links -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest font-bold text-tech dark:text-neon mb-5">Support</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="about.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">About Us</a></li>
+                        <li><a href="repair.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Repair Services</a></li>
+                        <li><a href="#newsletter" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Warranty & Returns</a></li>
+                        <li><a href="contact.html" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Contact Us</a></li>
+                        <li><a href="#" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">FAQs</a></li>
+                        <li><a href="#" class="text-dusk dark:text-gray-300 hover:text-tech dark:hover:text-neon transition">Track Order</a></li>
+                    </ul>
+                </div>
+
+                <!-- Store Info -->
+                <div>
+                    <h4 class="text-xs uppercase tracking-widest font-bold text-tech dark:text-neon mb-5">Visit Us</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-3 text-dusk dark:text-gray-300">
+                            <i class="fas fa-map-marker-alt text-tech dark:text-neon"></i>
+                            <span>89 Tech Boulevard, NY 10001</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-dusk dark:text-gray-300">
+                            <i class="fas fa-phone text-tech dark:text-neon"></i>
+                            <span>(555) 234-PHONE</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-dusk dark:text-gray-300">
+                            <i class="fas fa-envelope text-tech dark:text-neon"></i>
+                            <span>hello@mobicraft.com</span>
+                        </li>
+                        <li class="flex items-center gap-3 text-dusk dark:text-gray-300">
+                            <i class="fas fa-clock text-tech dark:text-neon"></i>
+                            <span>Mon–Sat: 9am – 8pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="mt-12 pt-8 border-t border-sand dark:border-slate-700/50 text-center text-sm text-dusk dark:text-gray-300">
+                <p>© 2026 MobiCraft | Mobile Phone & Accessories Shop. All rights reserved. <span class="text-tech dark:text-neon">⚡ Power your world.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle
+            const themeBtns = document.querySelectorAll('#theme-toggle, #mobile-theme-toggle');
+            themeBtns.forEach(btn => {
+                btn?.addEventListener('click', () => {
+                    document.documentElement.classList.toggle('dark');
+                    localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+                });
+            });
+            if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+
+            // RTL toggle
+            function setRTL(isRTL) {
+                const html = document.documentElement;
+                if (isRTL) { html.setAttribute('dir', 'rtl'); localStorage.setItem('dir', 'rtl'); }
+                else { html.setAttribute('dir', 'ltr'); localStorage.setItem('dir', 'ltr'); }
+            }
+            const savedDir = localStorage.getItem('dir');
+            if (savedDir === 'rtl') document.documentElement.setAttribute('dir', 'rtl');
+            else document.documentElement.setAttribute('dir', 'ltr');
+
+            const rtlBtn = document.getElementById('rtl-toggle');
+            if (rtlBtn) {
+                rtlBtn.addEventListener('click', () => {
+                    const currentDir = document.documentElement.getAttribute('dir');
+                    setRTL(currentDir !== 'rtl');
+                });
+            }
+            const mobileRtlBtn = document.getElementById('mobile-rtl-toggle');
+            if (mobileRtlBtn) {
+                mobileRtlBtn.addEventListener('click', () => {
+                    const currentDir = document.documentElement.getAttribute('dir');
+                    setRTL(currentDir !== 'rtl');
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const mobileToggle = document.getElementById('mobile-toggle');
+                    if (mobileMenu && mobileMenu.classList.contains('open')) {
+                        mobileMenu.classList.remove('open');
+                        if (mobileToggle && mobileToggle.querySelector('i')) {
+                            mobileToggle.querySelector('i').classList.remove('fa-times');
+                            mobileToggle.querySelector('i').classList.add('fa-bars');
+                        }
+                    }
+                });
+            }
+
+            // Mobile menu toggle
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileToggle && mobileMenu) {
+                mobileToggle.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('open');
+                    const icon = mobileToggle.querySelector('i');
+                    if (mobileMenu.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times');
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+                mobileMenu.querySelectorAll('a:not(#mobile-rtl-toggle)').forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('open');
+                        if (mobileToggle.querySelector('i')) {
+                            mobileToggle.querySelector('i').classList.remove('fa-times');
+                            mobileToggle.querySelector('i').classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
