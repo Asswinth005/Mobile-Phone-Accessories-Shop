@@ -716,6 +716,9 @@
         .compare-table td:last-child {
             border-radius: 0 16px 16px 0;
         }
+
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 
@@ -841,22 +844,22 @@
     <!-- ==================== HOME 2 – UNIQUE CONTENT ==================== -->
 
     <!-- HERO – Split layout with floating device mockup -->
-    <section class="relative min-h-screen flex items-center pt-36 pb-20 overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#111C2E] to-[#0B1120]">
+    <section class="relative min-h-screen flex items-center pt-28 pb-10 md:pt-32 md:pb-12 overflow-hidden bg-gradient-to-br from-[#0F172A] via-[#111C2E] to-[#0B1120]">
         <div class="floating-orb w-[500px] h-[500px] bg-tech top-[-100px] left-[-150px]"></div>
         <div class="floating-orb w-[400px] h-[400px] bg-neon bottom-[-100px] right-[-100px]"></div>
         <div class="container mx-auto px-6 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <!-- Left content -->
                 <div class="text-left animate-slide-up">
-                    <div class="inline-flex items-center gap-2 bg-tech/20 backdrop-blur-sm border border-tech/30 rounded-full px-4 py-1.5 mb-6">
+                    <div class="inline-flex items-center gap-2 bg-tech/20 backdrop-blur-sm border border-tech/30 rounded-full px-4 py-1.5 mb-4 lg:mb-6">
                         <span class="pulse-dot"></span>
                         <span class="text-neon text-xs font-semibold tracking-wide uppercase">New arrivals just dropped</span>
                     </div>
-                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-display font-bold leading-[1.1] text-white mb-6">
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.1] text-white mb-4 lg:mb-6">
                         Power Up<br>
                         Your <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon to-tech">World.</span>
                     </h1>
-                    <p class="text-lg text-gray-300 max-w-lg mb-8 leading-relaxed">
+                    <p class="text-base lg:text-lg text-gray-300 max-w-lg mb-6 leading-relaxed">
                         From flagship killers to everyday essentials — discover smartphones, audio, and accessories that actually deliver. Plus expert repairs you can trust.
                     </p>
                     <div class="flex flex-wrap gap-4">
@@ -868,7 +871,7 @@
                         </a>
                     </div>
                     <!-- Trust indicators -->
-                    <div class="flex items-center gap-6 mt-10 pt-8 border-t border-white/10">
+                    <div class="flex items-center gap-6 mt-6 pt-6 border-t border-white/10">
                         <div class="flex items-center gap-2">
                             <i class="fas fa-star text-amber-400 text-sm"></i>
                             <span class="text-white text-sm font-medium">4.9/5 rating</span>
@@ -884,19 +887,19 @@
                     </div>
                 </div>
                 <!-- Right visual – Cyber-tech 3D Showcase with Floating Ecosystem Cards -->
-                <div class="relative block mt-10 lg:mt-0 animate-float-slow">
-                    <div class="relative w-full max-w-[560px] h-[500px] sm:h-[540px] lg:h-[580px] mx-auto flex items-center justify-center">
+                <div class="relative block mt-8 lg:mt-0 animate-float-slow">
+                    <div class="relative w-full max-w-[460px] lg:max-w-[500px] h-[360px] sm:h-[420px] lg:h-[460px] mx-auto flex items-center justify-center">
 
                         <!-- Multi-layered Ambient Glows -->
                         <div class="absolute inset-0 bg-gradient-to-tr from-tech/35 via-neon/25 to-purple-600/25 rounded-full blur-3xl -z-10 scale-95 pointer-events-none"></div>
-                        <div class="absolute w-80 h-80 bg-neon/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+                        <div class="absolute w-72 h-72 bg-neon/20 rounded-full blur-3xl -z-10 pointer-events-none"></div>
 
                         <!-- Concentric Sci-Fi Orbital Rings -->
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] sm:w-[520px] h-[460px] sm:h-[520px] border border-cyan-400/20 rounded-full animate-spin-slow pointer-events-none -z-10"></div>
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[400px] h-[350px] sm:h-[400px] border border-dashed border-tech/35 rounded-full animate-spin-slow pointer-events-none -z-10" style="animation-direction: reverse; animation-duration: 25s;"></div>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[360px] sm:w-[420px] lg:w-[440px] h-[360px] sm:h-[420px] lg:h-[440px] border border-cyan-400/20 rounded-full animate-spin-slow pointer-events-none -z-10"></div>
+                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] sm:w-[320px] lg:w-[350px] h-[280px] sm:h-[320px] lg:h-[350px] border border-dashed border-tech/35 rounded-full animate-spin-slow pointer-events-none -z-10" style="animation-direction: reverse; animation-duration: 25s;"></div>
 
                         <!-- Central 3D Device Art with Screen Blend Mode & Soft Radial Fade -->
-                        <div class="relative w-[360px] h-[360px] sm:w-[440px] sm:h-[440px] lg:w-[490px] lg:h-[490px] flex items-center justify-center z-10">
+                        <div class="relative w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] lg:w-[400px] lg:h-[400px] flex items-center justify-center z-10">
                             <img src="assets/hero_bg.png" 
                                  alt="Flagship 5G Smartphone" 
                                  class="w-full h-full object-contain filter drop-shadow-[0_20px_45px_rgba(37,99,235,0.5)] transition-transform duration-700 hover:scale-105"
@@ -1368,7 +1371,7 @@
                 <i class="fas fa-quote-right text-tech dark:text-neon text-4xl opacity-20 mb-3"></i>
                 <h2 class="text-3xl md:text-4xl font-display font-bold text-soil dark:text-white">Real Stories, <span class="text-tech dark:text-neon">Real People</span></h2>
             </div>
-            <div class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-thin" style="scrollbar-width: thin;">
+            <div class="flex gap-6 overflow-x-auto pb-6 snap-x snap-mandatory scrollbar-hide" style="scrollbar-width: none; -ms-overflow-style: none;">
                 <!-- Testimonial 1 -->
                 <div class="testimonial-card min-w-[320px] max-w-[380px] snap-start flex flex-col">
                     <div class="flex mb-3"><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i><i class="fas fa-star text-tech dark:text-neon"></i></div>
