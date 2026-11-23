@@ -446,6 +446,12 @@
             box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.12);
         }
 
+        /* Grid auto-rows for uniform heights across all rows */
+        [data-category-grid] {
+            align-items: stretch;
+            grid-auto-rows: 1fr;
+        }
+
         .product-card {
             background: white;
             border-radius: 24px;
@@ -475,14 +481,19 @@
         }
 
         .product-card .product-img {
-            height: 200px;
+            height: 220px;
+            min-height: 220px;
+            max-height: 220px;
             overflow: hidden;
             position: relative;
-            background: #F9F5ED;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .dark .product-card .product-img {
-            background: #0F172A;
+            background: #FFFFFF;
         }
 
         .product-card .product-img img {
@@ -493,29 +504,99 @@
         }
 
         .product-card:hover .product-img img {
-            transform: scale(1.08);
-        }
-
-        #smartphones .product-card .product-img,
-        #cases .product-card .product-img {
-            height: 230px;
-            background: #FFFFFF;
+            transform: scale(1.05);
         }
 
         #smartphones .product-card .product-img img,
+        #chargers .product-card .product-img img,
         #cases .product-card .product-img img {
-            padding: 8px;
+            padding: 12px;
             object-fit: contain;
         }
 
         #smartphones .product-card:hover .product-img img,
+        #chargers .product-card:hover .product-img img,
         #cases .product-card:hover .product-img img {
-            transform: none;
+            transform: scale(1.04);
         }
 
-        .dark #smartphones .product-card .product-img,
-        .dark #cases .product-card .product-img {
-            background: #FFFFFF;
+        #earphones .product-card .product-img img {
+            object-fit: cover;
+            padding: 0;
+        }
+
+        .product-img-cover {
+            object-fit: cover !important;
+            padding: 0 !important;
+        }
+
+        .product-img-contain {
+            object-fit: contain !important;
+            padding: 12px !important;
+        }
+
+        /* Consistent Text Card Structure across all rows */
+        .product-card > div.p-5 {
+            padding: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            justify-content: space-between;
+        }
+
+        /* Top row: Brand & Rating baseline */
+        .product-card > div.p-5 > div:first-child {
+            height: 1.5rem;
+            min-height: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Product Title: standardized 2-line height and baseline across all rows */
+        .product-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            line-height: 1.375rem;
+            height: 2.75rem;
+            min-height: 2.75rem;
+            max-height: 2.75rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 0.375rem;
+        }
+
+        /* Product Description: standardized 2-line height and baseline across all rows */
+        .product-card p:not(.price-tag) {
+            font-size: 0.75rem;
+            line-height: 1.15rem;
+            height: 2.3rem;
+            min-height: 2.3rem;
+            max-height: 2.3rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 0.75rem;
+            flex: none;
+        }
+
+        /* Card footer: price and Add button pinned consistently */
+        .product-card > div.p-5 > div:last-child {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 0.75rem;
+            margin-top: auto;
+            border-top: 1px solid #E8DCC4;
+            min-height: 3.25rem;
+        }
+
+        .dark .product-card > div.p-5 > div:last-child {
+            border-top-color: rgba(51, 65, 85, 0.6);
         }
 
         .product-badge {
@@ -718,7 +799,7 @@
                         <button id="rtl-toggle"
                             class="w-10 h-10 rounded-full bg-sand dark:bg-slate-700 text-tech dark:text-neon hover:scale-110 transition flex items-center justify-center font-bold text-base"
                             title="Toggle RTL/LTR">⇄</button>
-                        <a href="contact.html" class="btn-primary h-10 px-5 text-sm font-semibold inline-flex items-center justify-center whitespace-nowrap">Contact Us</a>
+                        <a href="products.html" class="btn-primary h-10 px-5 text-sm font-semibold inline-flex items-center justify-center whitespace-nowrap">Shop Now</a>
                     </div>
 
                     <!-- Mobile toggle -->
@@ -774,7 +855,7 @@
                             </button>
                         </div>
                         <a class="text-center btn-primary py-2.5 rounded-full font-semibold"
-                            href="contact.html">Contact Us</a>
+                            href="products.html">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -832,7 +913,7 @@
                 </div>
                 <!-- Sort + count -->
                 <div class="flex items-center gap-3 shrink-0">
-                    <span class="text-xs text-dusk dark:text-gray-400 hidden sm:inline" id="product-count">24 products</span>
+                    <span class="text-xs text-dusk dark:text-gray-400 hidden sm:inline" id="product-count">32 products</span>
                     <select id="sort-select" class="text-sm border border-sand dark:border-slate-600 rounded-full px-4 py-2 bg-white dark:bg-slate-800 text-soil dark:text-white focus:outline-none focus:ring-2 focus:ring-tech/30 cursor-pointer">
                         <option value="popular">Most Popular</option>
                         <option value="price-low">Price: Low to High</option>
@@ -1060,7 +1141,7 @@
                         </div>
                         <p class="text-sm text-dusk dark:text-gray-400">Wireless earbuds, noise-cancelling headphones, and premium sound.</p>
                     </div>
-                    <span class="text-xs font-semibold text-clay bg-clay/10 px-3 py-1.5 rounded-full">6 products</span>
+                    <span class="text-xs font-semibold text-clay bg-clay/10 px-3 py-1.5 rounded-full">8 products</span>
                 </div>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-category-grid="earphones">
@@ -1200,6 +1281,52 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Product 7 -->
+                    <div class="product-card" data-category="earphones" data-price="349" data-rating="4.9" data-popularity="9">
+                        <div class="product-img">
+                            <span class="product-badge badge-hot">Hot</span>
+                            <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                            <img src="/assets/product-earphones-7.jpg" alt="Studio Pro Wireless" class="product-img-cover">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-clay bg-clay/10 px-2 py-0.5 rounded">Beats</span>
+                                <div class="rating-stars flex items-center gap-0.5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-[10px] text-dusk dark:text-gray-400 ml-1">4.9</span>
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-soil dark:text-white text-base mb-1">Studio Pro Wireless</h3>
+                            <p class="text-xs text-dusk dark:text-gray-400 mb-3 flex-1">Ultra-plush ANC • Lossless USB-C • 40hr</p>
+                            <div class="flex items-center justify-between mt-auto pt-3 border-t border-sand dark:border-slate-700/50">
+                                <span class="price-tag">$349</span>
+                                <button class="btn-primary text-xs px-4 py-2 rounded-full font-semibold"><i class="fas fa-cart-plus mr-1"></i>Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 8 -->
+                    <div class="product-card" data-category="earphones" data-price="229" data-rating="4.8" data-popularity="8">
+                        <div class="product-img">
+                            <span class="product-badge badge-new">New</span>
+                            <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                            <img src="/assets/product-earphones-8.jpg" alt="Galaxy Buds3 Pro" class="product-img-cover">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-clay bg-clay/10 px-2 py-0.5 rounded">Samsung</span>
+                                <div class="rating-stars flex items-center gap-0.5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-[10px] text-dusk dark:text-gray-400 ml-1">4.8</span>
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-soil dark:text-white text-base mb-1">Galaxy Buds3 Pro</h3>
+                            <p class="text-xs text-dusk dark:text-gray-400 mb-3 flex-1">Blade LED lights • 24-bit Hi-Fi • Adaptive ANC</p>
+                            <div class="flex items-center justify-between mt-auto pt-3 border-t border-sand dark:border-slate-700/50">
+                                <span class="price-tag">$229</span>
+                                <button class="btn-primary text-xs px-4 py-2 rounded-full font-semibold"><i class="fas fa-cart-plus mr-1"></i>Add</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1215,7 +1342,7 @@
                         </div>
                         <p class="text-sm text-dusk dark:text-gray-400">GaN chargers, wireless pads, and durable cables for every device.</p>
                     </div>
-                    <span class="text-xs font-semibold text-soil dark:text-gray-200 bg-soil/10 dark:bg-slate-700/50 px-3 py-1.5 rounded-full">5 products</span>
+                    <span class="text-xs font-semibold text-soil dark:text-gray-200 bg-soil/10 dark:bg-slate-700/50 px-3 py-1.5 rounded-full">8 products</span>
                 </div>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-category-grid="chargers">
@@ -1224,7 +1351,7 @@
                         <div class="product-img">
                             <span class="product-badge badge-bundle">Bundle</span>
                             <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                            <img src="/assets/h1.jpg" alt="65W GaN Charger">
+                            <img src="/assets/h1.jpg" alt="65W GaN Charger" class="product-img-contain">
                         </div>
                         <div class="p-5 flex flex-col flex-1">
                             <div class="flex items-center justify-between mb-2">
@@ -1247,7 +1374,7 @@
                         <div class="product-img">
                             <span class="product-badge badge-hot">Hot</span>
                             <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                            <img src="/assets/c1.jpg" alt="Anker 100W">
+                            <img src="/assets/c1.jpg" alt="Anker 100W" class="product-img-contain">
                         </div>
                         <div class="p-5 flex flex-col flex-1">
                             <div class="flex items-center justify-between mb-2">
@@ -1270,7 +1397,7 @@
                         <div class="product-img">
                             <span class="product-badge badge-new">New</span>
                             <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                            <img src="assets/unsplash-photo-1591290619618-904f6dd935e3-w600-q80.jpg" alt="MagSafe Wireless Pad">
+                            <img src="assets/unsplash-photo-1591290619618-904f6dd935e3-w600-q80.jpg" alt="MagSafe Wireless Pad" class="product-img-cover">
                         </div>
                         <div class="p-5 flex flex-col flex-1">
                             <div class="flex items-center justify-between mb-2">
@@ -1292,7 +1419,7 @@
                     <div class="product-card" data-category="chargers" data-price="19" data-rating="4.5" data-popularity="7">
                         <div class="product-img">
                             <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                            <img src="/assets/c2.jpg" alt="Braided USB-C Cable">
+                            <img src="/assets/c2.jpg" alt="Braided USB-C Cable" class="product-img-contain">
                         </div>
                         <div class="p-5 flex flex-col flex-1">
                             <div class="flex items-center justify-between mb-2">
@@ -1314,7 +1441,7 @@
                     <div class="product-card" data-category="chargers" data-price="79" data-rating="4.7" data-popularity="6">
                         <div class="product-img">
                             <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                            <img src="/assets/c3.jpg" alt="3-in-1 Charging Station">
+                            <img src="/assets/c3.jpg" alt="3-in-1 Charging Station" class="product-img-contain">
                         </div>
                         <div class="p-5 flex flex-col flex-1">
                             <div class="flex items-center justify-between mb-2">
@@ -1328,6 +1455,75 @@
                             <p class="text-xs text-dusk dark:text-gray-400 mb-3 flex-1">Phone + watch + buds • Fast wireless</p>
                             <div class="flex items-center justify-between mt-auto pt-3 border-t border-sand dark:border-slate-700/50">
                                 <span class="price-tag">$79</span>
+                                <button class="btn-primary text-xs px-4 py-2 rounded-full font-semibold"><i class="fas fa-cart-plus mr-1"></i>Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 6 -->
+                    <div class="product-card" data-category="chargers" data-price="89" data-rating="4.9" data-popularity="9">
+                        <div class="product-img">
+                            <span class="product-badge badge-new">New</span>
+                            <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                            <img src="/assets/product-charger-6.jpg" alt="140W GaN Desktop Charger" class="product-img-contain">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-soil dark:text-gray-200 bg-soil/10 dark:bg-slate-700/50 px-2 py-0.5 rounded">Baseus</span>
+                                <div class="rating-stars flex items-center gap-0.5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-[10px] text-dusk dark:text-gray-400 ml-1">4.9</span>
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-soil dark:text-white text-base mb-1">140W Multi-Port GaN</h3>
+                            <p class="text-xs text-dusk dark:text-gray-400 mb-3 flex-1">4-Port PD 3.1 • Digital LED display • Fast charge</p>
+                            <div class="flex items-center justify-between mt-auto pt-3 border-t border-sand dark:border-slate-700/50">
+                                <span class="price-tag">$89</span>
+                                <button class="btn-primary text-xs px-4 py-2 rounded-full font-semibold"><i class="fas fa-cart-plus mr-1"></i>Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 7 -->
+                    <div class="product-card" data-category="chargers" data-price="69" data-rating="4.8" data-popularity="8">
+                        <div class="product-img">
+                            <span class="product-badge badge-hot">Hot</span>
+                            <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                            <img src="/assets/product-charger-7.jpg" alt="Magnetic 20K Power Bank" class="product-img-contain">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-soil dark:text-gray-200 bg-soil/10 dark:bg-slate-700/50 px-2 py-0.5 rounded">Anker</span>
+                                <div class="rating-stars flex items-center gap-0.5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-[10px] text-dusk dark:text-gray-400 ml-1">4.8</span>
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-soil dark:text-white text-base mb-1">Magnetic 20K Power Bank</h3>
+                            <p class="text-xs text-dusk dark:text-gray-400 mb-3 flex-1">20,000mAh • Metal kickstand • 22.5W wireless</p>
+                            <div class="flex items-center justify-between mt-auto pt-3 border-t border-sand dark:border-slate-700/50">
+                                <span class="price-tag">$69</span>
+                                <button class="btn-primary text-xs px-4 py-2 rounded-full font-semibold"><i class="fas fa-cart-plus mr-1"></i>Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 8 -->
+                    <div class="product-card" data-category="chargers" data-price="35" data-rating="4.7" data-popularity="7">
+                        <div class="product-img">
+                            <span class="product-badge badge-bundle">Bundle</span>
+                            <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                            <img src="/assets/product-charger-8.jpg" alt="Dual 65W Fast Car Charger" class="product-img-contain">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-soil dark:text-gray-200 bg-soil/10 dark:bg-slate-700/50 px-2 py-0.5 rounded">MobiCraft</span>
+                                <div class="rating-stars flex items-center gap-0.5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-[10px] text-dusk dark:text-gray-400 ml-1">4.7</span>
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-soil dark:text-white text-base mb-1">Dual 65W Fast Car Charger</h3>
+                            <p class="text-xs text-dusk dark:text-gray-400 mb-3 flex-1">Metal alloy body • USB-C + USB-A • LED ring</p>
+                            <div class="flex items-center justify-between mt-auto pt-3 border-t border-sand dark:border-slate-700/50">
+                                <span class="price-tag">$35</span>
                                 <button class="btn-primary text-xs px-4 py-2 rounded-full font-semibold"><i class="fas fa-cart-plus mr-1"></i>Add</button>
                             </div>
                         </div>
@@ -1347,7 +1543,7 @@
                         </div>
                         <p class="text-sm text-dusk dark:text-gray-400">Rugged, slim, and clear cases that actually protect your investment.</p>
                     </div>
-                    <span class="text-xs font-semibold text-tech dark:text-neon bg-tech/10 px-3 py-1.5 rounded-full">5 products</span>
+                    <span class="text-xs font-semibold text-tech dark:text-neon bg-tech/10 px-3 py-1.5 rounded-full">8 products</span>
                 </div>
 
                 <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" data-category-grid="cases">
@@ -1356,7 +1552,7 @@
                         <div class="product-img">
                             <span class="product-badge badge-hot">Hot</span>
                             <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                            <img src="/assets/s6.jpg" alt="Rugged Armor Case">
+                            <img src="/assets/s6.jpg" alt="Rugged Armor Case" class="product-img-contain">
                         </div>
                         <div class="p-5 flex flex-col flex-1">
                             <div class="flex items-center justify-between mb-2">
@@ -1379,7 +1575,7 @@
                         <div class="product-img">
                             <span class="product-badge badge-new">New</span>
                             <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                            <img src="/assets/s2.jpg" alt="Clear MagSafe Case">
+                            <img src="/assets/s2.jpg" alt="Clear MagSafe Case" class="product-img-contain">
                         </div>
                         <div class="p-5 flex flex-col flex-1">
                             <div class="flex items-center justify-between mb-2">
@@ -1401,7 +1597,7 @@
                     <div class="product-card" data-category="cases" data-price="29" data-rating="4.5" data-popularity="7">
                         <div class="product-img">
                             <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                            <img src="/assets/s3.jpg" alt="Leather Wallet Case">
+                            <img src="/assets/s3.jpg" alt="Leather Wallet Case" class="product-img-contain">
                         </div>
                         <div class="p-5 flex flex-col flex-1">
                             <div class="flex items-center justify-between mb-2">
@@ -1424,7 +1620,7 @@
                         <div class="product-img">
                             <span class="product-badge badge-eco">Eco</span>
                             <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                            <img src="/assets/s4.jpg" alt="Silicone Soft Case">
+                            <img src="/assets/s4.jpg" alt="Silicone Soft Case" class="product-img-contain">
                         </div>
                         <div class="p-5 flex flex-col flex-1">
                             <div class="flex items-center justify-between mb-2">
@@ -1446,7 +1642,7 @@
                     <div class="product-card" data-category="cases" data-price="49" data-rating="4.7" data-popularity="8">
                         <div class="product-img">
                             <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
-                            <img src="/assets/s5.jpg" alt="Battery Case">
+                            <img src="/assets/s5.jpg" alt="Battery Case" class="product-img-contain">
                         </div>
                         <div class="p-5 flex flex-col flex-1">
                             <div class="flex items-center justify-between mb-2">
@@ -1460,6 +1656,75 @@
                             <p class="text-xs text-dusk dark:text-gray-400 mb-3 flex-1">5000mAh • Extended battery • MagSafe</p>
                             <div class="flex items-center justify-between mt-auto pt-3 border-t border-sand dark:border-slate-700/50">
                                 <span class="price-tag">$49</span>
+                                <button class="btn-primary text-xs px-4 py-2 rounded-full font-semibold"><i class="fas fa-cart-plus mr-1"></i>Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 6 -->
+                    <div class="product-card" data-category="cases" data-price="34" data-rating="4.8" data-popularity="8">
+                        <div class="product-img">
+                            <span class="product-badge badge-new">New</span>
+                            <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                            <img src="/assets/product-case-6.jpg" alt="MagSafe Armor Case" class="product-img-cover">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-tech dark:text-neon bg-tech/10 px-2 py-0.5 rounded">Torras</span>
+                                <div class="rating-stars flex items-center gap-0.5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-[10px] text-dusk dark:text-gray-400 ml-1">4.8</span>
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-soil dark:text-white text-base mb-1">MagSafe Armor Case</h3>
+                            <p class="text-xs text-dusk dark:text-gray-400 mb-3 flex-1">Magnetic 360° ring • Shockproof air-cushion</p>
+                            <div class="flex items-center justify-between mt-auto pt-3 border-t border-sand dark:border-slate-700/50">
+                                <span class="price-tag">$34</span>
+                                <button class="btn-primary text-xs px-4 py-2 rounded-full font-semibold"><i class="fas fa-cart-plus mr-1"></i>Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 7 -->
+                    <div class="product-card" data-category="cases" data-price="22" data-rating="4.7" data-popularity="7">
+                        <div class="product-img">
+                            <span class="product-badge badge-sale">-20%</span>
+                            <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                            <img src="/assets/product-case-7.jpg" alt="Pastel Matte Flex Case" class="product-img-cover">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-tech dark:text-neon bg-tech/10 px-2 py-0.5 rounded">MobiCraft</span>
+                                <div class="rating-stars flex items-center gap-0.5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-[10px] text-dusk dark:text-gray-400 ml-1">4.7</span>
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-soil dark:text-white text-base mb-1">Pastel Matte Flex Case</h3>
+                            <p class="text-xs text-dusk dark:text-gray-400 mb-3 flex-1">Velvety microfiber lining • Anti-fingerprint</p>
+                            <div class="flex items-center justify-between mt-auto pt-3 border-t border-sand dark:border-slate-700/50">
+                                <span class="price-tag">$22 <span class="price-old">$28</span></span>
+                                <button class="btn-primary text-xs px-4 py-2 rounded-full font-semibold"><i class="fas fa-cart-plus mr-1"></i>Add</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 8 -->
+                    <div class="product-card" data-category="cases" data-price="26" data-rating="4.6" data-popularity="6">
+                        <div class="product-img">
+                            <span class="product-badge badge-eco">Eco</span>
+                            <button class="wish-btn" aria-label="Add to wishlist"><i class="far fa-heart"></i></button>
+                            <img src="/assets/product-case-8.jpg" alt="Bio-Armor Shield Case" class="product-img-cover">
+                        </div>
+                        <div class="p-5 flex flex-col flex-1">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-semibold text-tech dark:text-neon bg-tech/10 px-2 py-0.5 rounded">Pela</span>
+                                <div class="rating-stars flex items-center gap-0.5">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                    <span class="text-[10px] text-dusk dark:text-gray-400 ml-1">4.6</span>
+                                </div>
+                            </div>
+                            <h3 class="font-bold text-soil dark:text-white text-base mb-1">Bio-Armor Shield Case</h3>
+                            <p class="text-xs text-dusk dark:text-gray-400 mb-3 flex-1">100% plant-based • 10ft drop tested • Grip edges</p>
+                            <div class="flex items-center justify-between mt-auto pt-3 border-t border-sand dark:border-slate-700/50">
+                                <span class="price-tag">$26</span>
                                 <button class="btn-primary text-xs px-4 py-2 rounded-full font-semibold"><i class="fas fa-cart-plus mr-1"></i>Add</button>
                             </div>
                         </div>
