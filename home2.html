@@ -578,6 +578,26 @@
             border-color: #22D3EE;
         }
 
+        @keyframes marqueeScroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            width: max-content;
+            animation: marqueeScroll 25s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
         .brand-item {
             --brand-color: #5C4B3A;
             --brand-color-dark: #E2E8F0;
@@ -588,20 +608,21 @@
             white-space: nowrap;
             display: inline-flex;
             align-items: center;
-            margin: 0 1rem;
+            margin: 0 1.25rem;
+            cursor: pointer;
         }
 
         @media (min-width: 640px) {
             .brand-item {
                 font-size: 1.3rem;
-                margin: 0 1.5rem;
+                margin: 0 1.75rem;
             }
         }
 
         @media (min-width: 1024px) {
             .brand-item {
                 font-size: 1.5rem;
-                margin: 0 2rem;
+                margin: 0 2.25rem;
             }
         }
 
@@ -920,8 +941,9 @@
         <div class="container mx-auto px-6 mb-6 text-center">
             <p class="text-xs uppercase tracking-widest font-semibold text-dusk dark:text-gray-400">Trusted by leading brands</p>
         </div>
-        <div class="relative w-full overflow-hidden">
-            <marquee behavior="scroll" direction="left" scrollamount="6" onmouseover="this.stop();" onmouseout="this.start();" class="py-2 block">
+        <div class="relative w-full overflow-hidden py-2">
+            <div class="marquee-track">
+                <!-- Set 1 (Starts from the front immediately on page load) -->
                 <span class="brand-item brand-apple"><i class="fab fa-apple mr-2"></i>Apple</span>
                 <span class="brand-item brand-samsung"><svg class="w-5 h-5 mr-2 inline-block shrink-0 fill-current" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z"/></svg>Samsung</span>
                 <span class="brand-item brand-google"><i class="fab fa-google mr-2"></i>Google</span>
@@ -938,6 +960,8 @@
                 <span class="brand-item brand-sony"><i class="fas fa-music mr-2"></i>Sony</span>
                 <span class="brand-item brand-bose"><i class="fas fa-headphones mr-2"></i>Bose</span>
                 <span class="brand-item brand-nothing"><i class="fas fa-mobile-alt mr-2"></i>Nothing</span>
+
+                <!-- Set 2 (Exact duplicate for seamless infinite loop) -->
                 <span class="brand-item brand-apple"><i class="fab fa-apple mr-2"></i>Apple</span>
                 <span class="brand-item brand-samsung"><svg class="w-5 h-5 mr-2 inline-block shrink-0 fill-current" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z"/></svg>Samsung</span>
                 <span class="brand-item brand-google"><i class="fab fa-google mr-2"></i>Google</span>
@@ -946,7 +970,15 @@
                 <span class="brand-item brand-sony"><i class="fas fa-music mr-2"></i>Sony</span>
                 <span class="brand-item brand-bose"><i class="fas fa-headphones mr-2"></i>Bose</span>
                 <span class="brand-item brand-nothing"><i class="fas fa-mobile-alt mr-2"></i>Nothing</span>
-            </marquee>
+                <span class="brand-item brand-apple"><i class="fab fa-apple mr-2"></i>Apple</span>
+                <span class="brand-item brand-samsung"><svg class="w-5 h-5 mr-2 inline-block shrink-0 fill-current" viewBox="0 0 24 24"><path d="M12 0C12 6.627 6.627 12 0 12c6.627 0 12 5.373 12 12 0-6.627 5.373-12 12-12-6.627 0-12-5.373-12-12z"/></svg>Samsung</span>
+                <span class="brand-item brand-google"><i class="fab fa-google mr-2"></i>Google</span>
+                <span class="brand-item brand-oneplus"><i class="fas fa-bolt mr-2"></i>OnePlus</span>
+                <span class="brand-item brand-xiaomi"><i class="fas fa-camera mr-2"></i>Xiaomi</span>
+                <span class="brand-item brand-sony"><i class="fas fa-music mr-2"></i>Sony</span>
+                <span class="brand-item brand-bose"><i class="fas fa-headphones mr-2"></i>Bose</span>
+                <span class="brand-item brand-nothing"><i class="fas fa-mobile-alt mr-2"></i>Nothing</span>
+            </div>
         </div>
     </section>
 
